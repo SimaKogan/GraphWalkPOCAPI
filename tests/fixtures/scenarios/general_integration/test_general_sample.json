@@ -1,0 +1,17 @@
+{
+  "scenario_id": "test_general_sample",
+  "user_id": "100000001",
+  "first_query": "איזו הנחה מקבל סטודנט בכרטיס מסלול?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {},
+  "scripted_user_replies": [],
+  "expectations": {
+    "route": "general",
+    "workflow_id": null,
+    "gt_answer": "סטודנט עם אישור לימודים בתוקף מקבל 33% הנחה בכרטיס מסלול.",
+    "facts_contains_keys": [],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

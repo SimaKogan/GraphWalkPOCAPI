@@ -1,0 +1,26 @@
+{
+  "scenario_id": "wf_1_1001_no_duplicate",
+  "user_id": "100000001",
+  "first_query": "ראיתי חיוב על קו 12, חויבתי פעמיים?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetTripHistory": "tests/fixtures/api_responses/wf_1/wf_1_1001_no_duplicate/GetTripHistory.json",
+    "CheckDuplicateCharge": "tests/fixtures/api_responses/wf_1/wf_1_1001_no_duplicate/CheckDuplicateCharge.json"
+  },
+  "scripted_user_replies": [
+    1
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 1",
+    "gt_answer": "לא נמצא חיוב כפול על הנסיעה שבחרת.",
+    "facts_contains_keys": [
+      "CheckDuplicateCharge_response",
+      "GetTripHistory_response",
+      "selected_trip_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

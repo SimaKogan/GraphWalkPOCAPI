@@ -1,0 +1,28 @@
+{
+  "scenario_id": "wf_1_1000_success",
+  "user_id": "100000001",
+  "first_query": "חויבתי פעמיים על אותה נסיעה אתמול, אפשר לבדוק?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetTripHistory": "tests/fixtures/api_responses/wf_1/wf_1_1000_success/GetTripHistory.json",
+    "CheckDuplicateCharge": "tests/fixtures/api_responses/wf_1/wf_1_1000_success/CheckDuplicateCharge.json",
+    "CheckRefundEligibility": "tests/fixtures/api_responses/wf_1/wf_1_1000_success/CheckRefundEligibility.json"
+  },
+  "scripted_user_replies": [
+    2
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 1",
+    "gt_answer": "נמצא חיוב כפול על הנסיעה: חויבת פעמיים בהפרש של שתי דקות. את/ה זכאי/ת להחזר של 6 ₪.",
+    "facts_contains_keys": [
+      "CheckDuplicateCharge_response",
+      "CheckRefundEligibility_response",
+      "GetTripHistory_response",
+      "selected_trip_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

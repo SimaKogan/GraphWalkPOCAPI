@@ -1,0 +1,23 @@
+{
+  "balance": {
+    "fieldNameEn": "BALANCE_ILS",
+    "fieldNameHe": "יתרה בכרטיס (₪)",
+    "value": 84.5,
+    "remark": null,
+    "responseType": 1
+  },
+  "lastTopUpDate": {
+    "fieldNameEn": "LAST_TOP_UP_DATE",
+    "fieldNameHe": "תאריך טעינה אחרון",
+    "value": "2026-10-30",
+    "remark": null,
+    "responseType": 2
+  },
+  "autoReloadEnabled": {
+    "fieldNameEn": "AUTO_RELOAD_ENABLED",
+    "fieldNameHe": "טעינה אוטומטית פעילה",
+    "value": true,
+    "remark": null,
+    "responseType": 2
+  }
+}

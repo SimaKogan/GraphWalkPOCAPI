@@ -1,0 +1,10 @@
+{
+  "hasData": {
+    "fieldNameEn": "HAS_DATA",
+    "fieldNameHe": "האם קיימות נסיעות",
+    "value": false,
+    "remark": null,
+    "responseType": 1
+  },
+  "result": []
+}

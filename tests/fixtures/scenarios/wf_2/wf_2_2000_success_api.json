@@ -1,0 +1,24 @@
+{
+  "scenario_id": "wf_2_2000_success_api",
+  "user_id": "100000104",
+  "first_query": "האם מגיע לי החזר על הנסיעה שבה האוטובוס התקלקל?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 4,
+  "external_personal_info_base_url": "http://localhost:9000/mock-api",
+  "scripted_user_replies": [
+    2
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 2",
+    "gt_answer": "הנסיעה זכאית להחזר של 6 ₪. כבר קיימת בקשת החזר בטיפול.",
+    "facts_contains_keys": [
+      "CheckRefundEligibility_response",
+      "GetRefundRequests_response",
+      "GetTripHistory_response",
+      "selected_trip_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

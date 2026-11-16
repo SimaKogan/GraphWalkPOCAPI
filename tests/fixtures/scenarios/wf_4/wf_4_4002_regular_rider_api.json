@@ -1,0 +1,19 @@
+{
+  "scenario_id": "wf_4_4002_regular_rider_api",
+  "user_id": "100000109",
+  "first_query": "מתי פג תוקף ההנחה שלי בכרטיס?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 4,
+  "external_personal_info_base_url": "http://localhost:9000/mock-api",
+  "scripted_user_replies": [],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 4",
+    "gt_answer": "הנוסע רשום כנוסע רגיל ואין לו הנחה בכרטיס.",
+    "facts_contains_keys": [
+      "GetRiderProfile_response"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

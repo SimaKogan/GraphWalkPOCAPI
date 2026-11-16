@@ -1,0 +1,9 @@
+{
+  "isDuplicate": {
+    "fieldNameEn": "IS_DUPLICATE",
+    "fieldNameHe": "האם חויבה פעמיים",
+    "value": false,
+    "remark": null,
+    "responseType": 1
+  }
+}

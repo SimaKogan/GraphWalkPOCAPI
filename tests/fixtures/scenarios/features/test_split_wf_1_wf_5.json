@@ -1,0 +1,51 @@
+{
+  "scenario_id": "split_wf_1_wf_5",
+  "user_id": "100000001",
+  "first_query": "חויבתי פעמיים על נסיעה אתמול? וגם, אפשר לחדש את המנוי החודשי שלי?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetTripHistory": "tests/fixtures/api_responses/features/split_wf_1_wf_5/GetTripHistory.json",
+    "CheckDuplicateCharge": "tests/fixtures/api_responses/features/split_wf_1_wf_5/CheckDuplicateCharge.json",
+    "CheckRefundEligibility": "tests/fixtures/api_responses/features/split_wf_1_wf_5/CheckRefundEligibility.json",
+    "GetActivePasses": "tests/fixtures/api_responses/features/split_wf_1_wf_5/GetActivePasses.json",
+    "GetPassRenewalOptions": "tests/fixtures/api_responses/features/split_wf_1_wf_5/GetPassRenewalOptions.json",
+    "GetCardBalance": "tests/fixtures/api_responses/features/split_wf_1_wf_5/GetCardBalance.json"
+  },
+  "scripted_user_replies": [
+    2,
+    1
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 1",
+    "gt_answer": "נמצא חיוב כפול על הנסיעה וזכאות להחזר של 6 ₪. את המנוי ניתן לחדש ב-60 ₪ ותישאר יתרה של 24.5 ₪.",
+    "facts_contains_keys": [
+      "CheckDuplicateCharge_response",
+      "CheckRefundEligibility_response",
+      "GetActivePasses_response",
+      "GetCardBalance_response",
+      "GetPassRenewalOptions_response",
+      "GetTripHistory_response",
+      "balance_after_renewal",
+      "selected_pass_details",
+      "selected_trip_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  },
+  "workflow_plan": [
+    {
+      "workflow_id": "wf 1",
+      "replies": [
+        2
+      ]
+    },
+    {
+      "workflow_id": "wf 5",
+      "replies": [
+        1
+      ]
+    }
+  ]
+}

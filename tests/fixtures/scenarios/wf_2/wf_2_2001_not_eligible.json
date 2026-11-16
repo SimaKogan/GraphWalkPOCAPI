@@ -1,0 +1,26 @@
+{
+  "scenario_id": "wf_2_2001_not_eligible",
+  "user_id": "100000001",
+  "first_query": "אני רוצה החזר על הנסיעה האחרונה שלי",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetTripHistory": "tests/fixtures/api_responses/wf_2/wf_2_2001_not_eligible/GetTripHistory.json",
+    "CheckRefundEligibility": "tests/fixtures/api_responses/wf_2/wf_2_2001_not_eligible/CheckRefundEligibility.json"
+  },
+  "scripted_user_replies": [
+    3
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 2",
+    "gt_answer": "הנסיעה אינה זכאית להחזר: היא בוצעה ושולמה בתעריף הנכון.",
+    "facts_contains_keys": [
+      "CheckRefundEligibility_response",
+      "GetTripHistory_response",
+      "selected_trip_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

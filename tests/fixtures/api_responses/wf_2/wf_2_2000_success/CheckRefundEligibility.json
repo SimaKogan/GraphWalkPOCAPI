@@ -1,0 +1,30 @@
+{
+  "isEligible": {
+    "fieldNameEn": "IS_ELIGIBLE",
+    "fieldNameHe": "האם זכאי להחזר",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "refundAmount": {
+    "fieldNameEn": "REFUND_AMOUNT_ILS",
+    "fieldNameHe": "סכום ההחזר (₪)",
+    "value": 6.0,
+    "remark": null,
+    "responseType": 1
+  },
+  "reason": {
+    "fieldNameEn": "REASON",
+    "fieldNameHe": "סיבת הזכאות",
+    "value": "חיוב כפול שאושר במערכת",
+    "remark": null,
+    "responseType": 2
+  },
+  "refundDeadline": {
+    "fieldNameEn": "REFUND_DEADLINE",
+    "fieldNameHe": "מועד אחרון להגשת בקשה",
+    "value": "2026-12-10",
+    "remark": null,
+    "responseType": 2
+  }
+}

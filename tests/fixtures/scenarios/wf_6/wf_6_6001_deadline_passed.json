@@ -1,0 +1,26 @@
+{
+  "scenario_id": "wf_6_6001_deadline_passed",
+  "user_id": "100000001",
+  "first_query": "האם עבר המועד לערעור על הקנס?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetFineDetails": "tests/fixtures/api_responses/wf_6/wf_6_6001_deadline_passed/GetFineDetails.json",
+    "CheckFineAppealWindow": "tests/fixtures/api_responses/wf_6/wf_6_6001_deadline_passed/CheckFineAppealWindow.json"
+  },
+  "scripted_user_replies": [
+    2
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 6",
+    "gt_answer": "לא ניתן עוד לערער על הקנס: חלפו 30 יום מתאריך הקנס.",
+    "facts_contains_keys": [
+      "CheckFineAppealWindow_response",
+      "GetFineDetails_response",
+      "selected_fine_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

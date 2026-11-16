@@ -1,0 +1,85 @@
+{
+  "hasData": {
+    "fieldNameEn": "HAS_DATA",
+    "fieldNameHe": "האם קיימים מנויים",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "result": [
+    {
+      "passName": {
+        "fieldNameEn": "PASS_NAME",
+        "fieldNameHe": "שם המנוי",
+        "value": "מנוי חודשי – אזור מרכז",
+        "remark": null,
+        "responseType": 1
+      },
+      "validFrom": {
+        "fieldNameEn": "VALID_FROM",
+        "fieldNameHe": "בתוקף מ-",
+        "value": "2026-10-01",
+        "remark": null,
+        "responseType": 1
+      },
+      "validUntil": {
+        "fieldNameEn": "VALID_UNTIL",
+        "fieldNameHe": "בתוקף עד",
+        "value": "2026-11-30",
+        "remark": null,
+        "responseType": 1
+      },
+      "zones": {
+        "fieldNameEn": "ZONES",
+        "fieldNameHe": "אזורים",
+        "value": "מרכז",
+        "remark": null,
+        "responseType": 2
+      },
+      "passId": {
+        "fieldNameEn": "PASS_ID",
+        "fieldNameHe": "מזהה מנוי",
+        "value": "P-3001",
+        "remark": null,
+        "responseType": 2
+      }
+    },
+    {
+      "passName": {
+        "fieldNameEn": "PASS_NAME",
+        "fieldNameHe": "שם המנוי",
+        "value": "מנוי חודשי – כל הארץ",
+        "remark": null,
+        "responseType": 1
+      },
+      "validFrom": {
+        "fieldNameEn": "VALID_FROM",
+        "fieldNameHe": "בתוקף מ-",
+        "value": "2026-09-01",
+        "remark": null,
+        "responseType": 1
+      },
+      "validUntil": {
+        "fieldNameEn": "VALID_UNTIL",
+        "fieldNameHe": "בתוקף עד",
+        "value": "2026-09-30",
+        "remark": null,
+        "responseType": 1
+      },
+      "zones": {
+        "fieldNameEn": "ZONES",
+        "fieldNameHe": "אזורים",
+        "value": "ארצי",
+        "remark": null,
+        "responseType": 2
+      },
+      "passId": {
+        "fieldNameEn": "PASS_ID",
+        "fieldNameHe": "מזהה מנוי",
+        "value": "P-3002",
+        "remark": null,
+        "responseType": 2
+      }
+    }
+  ]
+}

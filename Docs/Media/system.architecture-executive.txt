@@ -1,0 +1,42 @@
+---
+config:
+  layout: fixed
+---
+flowchart LR
+ subgraph Users["Users"]
+        U["End Users"]
+  end
+ subgraph Frontend["Frontend"]
+        FE["Web Portal & Chat"]
+  end
+ subgraph Personal["Personal Route"]
+    direction TB
+        Select["Topic Classification+ Curated-Question Retrieval + Critic"]
+        Exec["Workflow Execution"]
+  end
+ subgraph Core["Backend · Agent Runtime"]
+        Router["Routing Agent"]
+        KAG["General QA (RAG/KAG)"]
+        Personal
+        Casual["Casual Conversation"]
+        Blocked["Policy / Safety"]
+  end
+ subgraph AI["AI Services"]
+        Vertex["Vertex AI (LLMs + Embeddings)"]
+  end
+ subgraph Data["Data Stores"]
+        GeneralDB["General Knowledge"]
+        PersonalDB["Personal Graph (Neo4j)"]
+  end
+ subgraph External["External Systems"]
+        Systems["HR/Payroll & Other APIs"]
+  end
+    U --> FE
+    FE --> Router
+    Router -- General --> KAG
+    Router -- Personal --> Select
+    Router -- Casual --> Casual
+    Router -- Forbidden --> Blocked
+    Select --> Exec
+    Core --> Vertex & Data
+    Exec --> Systems

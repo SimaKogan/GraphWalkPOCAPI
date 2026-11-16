@@ -1,0 +1,87 @@
+x-gcp-auth: &gcp-auth
+  environment:
+    - GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT}
+    - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+  volumes:
+    # gcloud application-default credentials of the host user (read-only)
+    - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
+
+services:
+  orchestrator-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.orchestrator
+    container_name: orchestrator-service
+    env_file:
+      - .env
+    environment:
+      - ORC_MODE=remote
+      - PERSONAL_SERVICE_URL=http://personal-service:8000
+      - GENERAL_SERVICE_URL=http://general-service:8000
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+      - SERVER_THREADPOOL_WORKERS=${SERVER_THREADPOOL_WORKERS:-32}
+    volumes:
+      - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
+    ports:
+      - "8000:8000"
+    depends_on:
+      - personal-service
+      - general-service
+    command: >
+      uvicorn Web.server:app
+      --host 0.0.0.0
+      --port 8000
+      --workers 1
+      --limit-concurrency 50
+      --backlog 2048
+
+  personal-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.personal
+    container_name: personal-service
+    env_file:
+      - .env
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+      - SERVER_THREADPOOL_WORKERS=${SERVER_THREADPOOL_WORKERS:-32}
+    volumes:
+      - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
+    ports:
+      - "8001:8000"
+    command: >
+      uvicorn Web.personal_server:app
+      --host 0.0.0.0
+      --port 8000
+      --workers 1
+      --limit-concurrency 50
+      --backlog 2048
+
+  general-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.general
+    container_name: general-service
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - GOOGLE_APPLICATION_CREDENTIALS=/root/.config/gcloud/application_default_credentials.json
+      - SERVER_THREADPOOL_WORKERS=${SERVER_THREADPOOL_WORKERS:-32}
+      - DB_HOST=${DB_HOST:-host.docker.internal}
+      - DB_PORT=${DB_PORT:-5432}
+      - DB_NAME=${DB_NAME:-vector_db}
+      - DB_USER=${DB_USER:-postgres}
+      - DB_PASS=${DB_PASS:-postgres}
+    volumes:
+      - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
+    ports:
+      - "8002:8000"
+    command: >
+      uvicorn Web.general_server:app
+      --host 0.0.0.0
+      --port 8000
+      --workers 1
+      --limit-concurrency 50
+      --backlog 2048

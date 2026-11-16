@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בוט מסלול • Chat</title>
+    <link rel="stylesheet" href="/static/chat.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="page-chat">
+<aside class="sidebar">
+    <div class="sidebar-header">
+        <div class="brand">בוט מסלול</div>
+        <button id="logout" class="icon-btn" title="Logout">⎋</button>
+    </div>
+    <div class="sidebar-actions">
+        <button id="new-conv" class="btn full">שיחה חדשה +</button>
+    </div>
+    <ul id="conv-list" class="conv-list"></ul>
+</aside>
+
+<main class="chat">
+    <div id="chat-header" class="chat-header">צ'אט</div>
+    <div id="messages" class="messages"></div>
+    <form id="send-form" class="send">
+        <input id="msg" type="text" placeholder="שאל אותי..." autocomplete="off" required>
+        <button class="btn primary" type="submit">שלח</button>
+    </form>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

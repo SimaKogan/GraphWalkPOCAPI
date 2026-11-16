@@ -1,0 +1,26 @@
+{
+  "scenario_id": "wf_6_6000_success",
+  "user_id": "100000001",
+  "first_query": "קיבלתי קנס בבדיקת כרטיסים, אפשר עוד לערער?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetFineDetails": "tests/fixtures/api_responses/wf_6/wf_6_6000_success/GetFineDetails.json",
+    "CheckFineAppealWindow": "tests/fixtures/api_responses/wf_6/wf_6_6000_success/CheckFineAppealWindow.json"
+  },
+  "scripted_user_replies": [
+    1
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 6",
+    "gt_answer": "ניתן עדיין לערער על הקנס. נותרו 8 ימים, עד 20.11.2026.",
+    "facts_contains_keys": [
+      "CheckFineAppealWindow_response",
+      "GetFineDetails_response",
+      "selected_fine_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

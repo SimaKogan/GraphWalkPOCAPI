@@ -1,0 +1,1659 @@
+{
+  "_comment": "Invented demo riders for the local mock API. Key = riderId, value = endpoint -> response body.",
+  "riders": {
+    "100000101": {
+      "GetTripHistory": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימות נסיעות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:15",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50011",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:17",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50012",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-09 17:40",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "רכבת קלה אדומה – מרכז העיר ↔ הנמל",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 7.5,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50013",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "CheckDuplicateCharge": {
+        "isDuplicate": {
+          "fieldNameEn": "IS_DUPLICATE",
+          "fieldNameHe": "האם חויבה פעמיים",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "duplicateOfTripId": {
+          "fieldNameEn": "DUPLICATE_OF_TRIP_ID",
+          "fieldNameHe": "מזהה החיוב הכפול",
+          "value": "T-50012",
+          "remark": null,
+          "responseType": 2
+        },
+        "minutesBetweenCharges": {
+          "fieldNameEn": "MINUTES_BETWEEN",
+          "fieldNameHe": "דקות בין החיובים",
+          "value": 2,
+          "remark": null,
+          "responseType": 2
+        }
+      },
+      "CheckRefundEligibility": {
+        "isEligible": {
+          "fieldNameEn": "IS_ELIGIBLE",
+          "fieldNameHe": "האם זכאי להחזר",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "refundAmount": {
+          "fieldNameEn": "REFUND_AMOUNT_ILS",
+          "fieldNameHe": "סכום ההחזר (₪)",
+          "value": 6.0,
+          "remark": null,
+          "responseType": 1
+        },
+        "reason": {
+          "fieldNameEn": "REASON",
+          "fieldNameHe": "סיבת הזכאות",
+          "value": "חיוב כפול שאושר במערכת",
+          "remark": null,
+          "responseType": 2
+        },
+        "refundDeadline": {
+          "fieldNameEn": "REFUND_DEADLINE",
+          "fieldNameHe": "מועד אחרון להגשת בקשה",
+          "value": "2026-12-10",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000102": {
+      "GetTripHistory": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימות נסיעות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:15",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50011",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:17",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50012",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-09 17:40",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "רכבת קלה אדומה – מרכז העיר ↔ הנמל",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 7.5,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50013",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "CheckDuplicateCharge": {
+        "isDuplicate": {
+          "fieldNameEn": "IS_DUPLICATE",
+          "fieldNameHe": "האם חויבה פעמיים",
+          "value": false,
+          "remark": null,
+          "responseType": 1
+        }
+      }
+    },
+    "100000103": {
+      "GetTripHistory": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימות נסיעות",
+          "value": false,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": []
+      }
+    },
+    "100000104": {
+      "GetTripHistory": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימות נסיעות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:15",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50011",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:17",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50012",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-09 17:40",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "רכבת קלה אדומה – מרכז העיר ↔ הנמל",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 7.5,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50013",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "CheckRefundEligibility": {
+        "isEligible": {
+          "fieldNameEn": "IS_ELIGIBLE",
+          "fieldNameHe": "האם זכאי להחזר",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "refundAmount": {
+          "fieldNameEn": "REFUND_AMOUNT_ILS",
+          "fieldNameHe": "סכום ההחזר (₪)",
+          "value": 6.0,
+          "remark": null,
+          "responseType": 1
+        },
+        "reason": {
+          "fieldNameEn": "REASON",
+          "fieldNameHe": "סיבת הזכאות",
+          "value": "חיוב כפול שאושר במערכת",
+          "remark": null,
+          "responseType": 2
+        },
+        "refundDeadline": {
+          "fieldNameEn": "REFUND_DEADLINE",
+          "fieldNameHe": "מועד אחרון להגשת בקשה",
+          "value": "2026-12-10",
+          "remark": null,
+          "responseType": 2
+        }
+      },
+      "GetRefundRequests": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימות בקשות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "requestId": {
+              "fieldNameEn": "REQUEST_ID",
+              "fieldNameHe": "מספר בקשה",
+              "value": "RR-7001",
+              "remark": null,
+              "responseType": 1
+            },
+            "submittedOn": {
+              "fieldNameEn": "SUBMITTED_ON",
+              "fieldNameHe": "תאריך הגשה",
+              "value": "2026-11-02",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "status": {
+              "fieldNameEn": "STATUS",
+              "fieldNameHe": "סטטוס",
+              "value": "בטיפול",
+              "remark": null,
+              "responseType": 1
+            }
+          },
+          {
+            "requestId": {
+              "fieldNameEn": "REQUEST_ID",
+              "fieldNameHe": "מספר בקשה",
+              "value": "RR-6990",
+              "remark": null,
+              "responseType": 1
+            },
+            "submittedOn": {
+              "fieldNameEn": "SUBMITTED_ON",
+              "fieldNameHe": "תאריך הגשה",
+              "value": "2026-10-05",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 12.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "status": {
+              "fieldNameEn": "STATUS",
+              "fieldNameHe": "סטטוס",
+              "value": "אושרה",
+              "remark": null,
+              "responseType": 1
+            }
+          }
+        ]
+      }
+    },
+    "100000105": {
+      "GetTripHistory": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימות נסיעות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:15",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50011",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-10 08:17",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50012",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "tripDate": {
+              "fieldNameEn": "TRIP_DATE",
+              "fieldNameHe": "תאריך נסיעה",
+              "value": "2026-11-09 17:40",
+              "remark": null,
+              "responseType": 1
+            },
+            "routeName": {
+              "fieldNameEn": "ROUTE_NAME",
+              "fieldNameHe": "קו",
+              "value": "רכבת קלה אדומה – מרכז העיר ↔ הנמל",
+              "remark": null,
+              "responseType": 1
+            },
+            "fareCharged": {
+              "fieldNameEn": "FARE_CHARGED_ILS",
+              "fieldNameHe": "סכום שחויב (₪)",
+              "value": 7.5,
+              "remark": null,
+              "responseType": 1
+            },
+            "paymentMethod": {
+              "fieldNameEn": "PAYMENT_METHOD",
+              "fieldNameHe": "אמצעי תשלום",
+              "value": "כרטיס מסלול",
+              "remark": null,
+              "responseType": 2
+            },
+            "tripId": {
+              "fieldNameEn": "TRIP_ID",
+              "fieldNameHe": "מזהה נסיעה",
+              "value": "T-50013",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "CheckRefundEligibility": {
+        "isEligible": {
+          "fieldNameEn": "IS_ELIGIBLE",
+          "fieldNameHe": "האם זכאי להחזר",
+          "value": false,
+          "remark": null,
+          "responseType": 1
+        },
+        "reason": {
+          "fieldNameEn": "REASON",
+          "fieldNameHe": "סיבת אי-הזכאות",
+          "value": "הנסיעה בוצעה ושולמה בתעריף הנכון",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000106": {
+      "GetRefundRequests": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימות בקשות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "requestId": {
+              "fieldNameEn": "REQUEST_ID",
+              "fieldNameHe": "מספר בקשה",
+              "value": "RR-7001",
+              "remark": null,
+              "responseType": 1
+            },
+            "submittedOn": {
+              "fieldNameEn": "SUBMITTED_ON",
+              "fieldNameHe": "תאריך הגשה",
+              "value": "2026-11-02",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 6.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "status": {
+              "fieldNameEn": "STATUS",
+              "fieldNameHe": "סטטוס",
+              "value": "בטיפול",
+              "remark": null,
+              "responseType": 1
+            }
+          },
+          {
+            "requestId": {
+              "fieldNameEn": "REQUEST_ID",
+              "fieldNameHe": "מספר בקשה",
+              "value": "RR-6990",
+              "remark": null,
+              "responseType": 1
+            },
+            "submittedOn": {
+              "fieldNameEn": "SUBMITTED_ON",
+              "fieldNameHe": "תאריך הגשה",
+              "value": "2026-10-05",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 12.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "status": {
+              "fieldNameEn": "STATUS",
+              "fieldNameHe": "סטטוס",
+              "value": "אושרה",
+              "remark": null,
+              "responseType": 1
+            }
+          }
+        ]
+      }
+    },
+    "100000107": {
+      "GetRiderProfile": {
+        "riderCategory": {
+          "fieldNameEn": "RIDER_CATEGORY",
+          "fieldNameHe": "קטגוריית נוסע",
+          "value": "student",
+          "remark": null,
+          "responseType": 1
+        },
+        "discountValidUntil": {
+          "fieldNameEn": "DISCOUNT_VALID_UNTIL",
+          "fieldNameHe": "תוקף ההנחה עד",
+          "value": "2030-06-30",
+          "remark": null,
+          "responseType": 1
+        },
+        "cardId": {
+          "fieldNameEn": "CARD_ID",
+          "fieldNameHe": "מספר כרטיס",
+          "value": "MC-100200",
+          "remark": null,
+          "responseType": 2
+        },
+        "cardStatus": {
+          "fieldNameEn": "CARD_STATUS",
+          "fieldNameHe": "סטטוס כרטיס",
+          "value": "active",
+          "remark": null,
+          "responseType": 1
+        }
+      },
+      "CheckDiscountEligibility": {
+        "isEligible": {
+          "fieldNameEn": "IS_ELIGIBLE",
+          "fieldNameHe": "האם זכאי להנחה",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "discountPercent": {
+          "fieldNameEn": "DISCOUNT_PERCENT",
+          "fieldNameHe": "אחוז ההנחה",
+          "value": 33,
+          "remark": null,
+          "responseType": 1
+        },
+        "requiredDocument": {
+          "fieldNameEn": "REQUIRED_DOCUMENT",
+          "fieldNameHe": "אישור נדרש",
+          "value": "אישור לימודים עדכני",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000108": {
+      "GetRiderProfile": {
+        "riderCategory": {
+          "fieldNameEn": "RIDER_CATEGORY",
+          "fieldNameHe": "קטגוריית נוסע",
+          "value": "student",
+          "remark": null,
+          "responseType": 1
+        },
+        "discountValidUntil": {
+          "fieldNameEn": "DISCOUNT_VALID_UNTIL",
+          "fieldNameHe": "תוקף ההנחה עד",
+          "value": "2024-06-30",
+          "remark": null,
+          "responseType": 1
+        },
+        "cardId": {
+          "fieldNameEn": "CARD_ID",
+          "fieldNameHe": "מספר כרטיס",
+          "value": "MC-100200",
+          "remark": null,
+          "responseType": 2
+        },
+        "cardStatus": {
+          "fieldNameEn": "CARD_STATUS",
+          "fieldNameHe": "סטטוס כרטיס",
+          "value": "active",
+          "remark": null,
+          "responseType": 1
+        }
+      },
+      "CheckDiscountEligibility": {
+        "isEligible": {
+          "fieldNameEn": "IS_ELIGIBLE",
+          "fieldNameHe": "האם זכאי להנחה",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "discountPercent": {
+          "fieldNameEn": "DISCOUNT_PERCENT",
+          "fieldNameHe": "אחוז ההנחה",
+          "value": 33,
+          "remark": null,
+          "responseType": 1
+        },
+        "requiredDocument": {
+          "fieldNameEn": "REQUIRED_DOCUMENT",
+          "fieldNameHe": "אישור נדרש",
+          "value": "אישור לימודים עדכני",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000109": {
+      "GetRiderProfile": {
+        "riderCategory": {
+          "fieldNameEn": "RIDER_CATEGORY",
+          "fieldNameHe": "קטגוריית נוסע",
+          "value": "regular",
+          "remark": null,
+          "responseType": 1
+        },
+        "discountValidUntil": {
+          "fieldNameEn": "DISCOUNT_VALID_UNTIL",
+          "fieldNameHe": "תוקף ההנחה עד",
+          "value": null,
+          "remark": null,
+          "responseType": 2
+        },
+        "cardId": {
+          "fieldNameEn": "CARD_ID",
+          "fieldNameHe": "מספר כרטיס",
+          "value": "MC-100200",
+          "remark": null,
+          "responseType": 2
+        },
+        "cardStatus": {
+          "fieldNameEn": "CARD_STATUS",
+          "fieldNameHe": "סטטוס כרטיס",
+          "value": "active",
+          "remark": null,
+          "responseType": 1
+        }
+      }
+    },
+    "100000110": {
+      "GetActivePasses": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימים מנויים",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "passName": {
+              "fieldNameEn": "PASS_NAME",
+              "fieldNameHe": "שם המנוי",
+              "value": "מנוי חודשי – אזור מרכז",
+              "remark": null,
+              "responseType": 1
+            },
+            "validFrom": {
+              "fieldNameEn": "VALID_FROM",
+              "fieldNameHe": "בתוקף מ-",
+              "value": "2026-10-01",
+              "remark": null,
+              "responseType": 1
+            },
+            "validUntil": {
+              "fieldNameEn": "VALID_UNTIL",
+              "fieldNameHe": "בתוקף עד",
+              "value": "2026-11-30",
+              "remark": null,
+              "responseType": 1
+            },
+            "zones": {
+              "fieldNameEn": "ZONES",
+              "fieldNameHe": "אזורים",
+              "value": "מרכז",
+              "remark": null,
+              "responseType": 2
+            },
+            "passId": {
+              "fieldNameEn": "PASS_ID",
+              "fieldNameHe": "מזהה מנוי",
+              "value": "P-3001",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "passName": {
+              "fieldNameEn": "PASS_NAME",
+              "fieldNameHe": "שם המנוי",
+              "value": "מנוי חודשי – כל הארץ",
+              "remark": null,
+              "responseType": 1
+            },
+            "validFrom": {
+              "fieldNameEn": "VALID_FROM",
+              "fieldNameHe": "בתוקף מ-",
+              "value": "2026-09-01",
+              "remark": null,
+              "responseType": 1
+            },
+            "validUntil": {
+              "fieldNameEn": "VALID_UNTIL",
+              "fieldNameHe": "בתוקף עד",
+              "value": "2026-09-30",
+              "remark": null,
+              "responseType": 1
+            },
+            "zones": {
+              "fieldNameEn": "ZONES",
+              "fieldNameHe": "אזורים",
+              "value": "ארצי",
+              "remark": null,
+              "responseType": 2
+            },
+            "passId": {
+              "fieldNameEn": "PASS_ID",
+              "fieldNameHe": "מזהה מנוי",
+              "value": "P-3002",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "GetPassRenewalOptions": {
+        "canRenew": {
+          "fieldNameEn": "CAN_RENEW",
+          "fieldNameHe": "האם ניתן לחדש",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "renewalPrice": {
+          "fieldNameEn": "RENEWAL_PRICE_ILS",
+          "fieldNameHe": "מחיר חידוש (₪)",
+          "value": 60.0,
+          "remark": null,
+          "responseType": 1
+        },
+        "earliestRenewalDate": {
+          "fieldNameEn": "EARLIEST_RENEWAL_DATE",
+          "fieldNameHe": "מועד חידוש מוקדם ביותר",
+          "value": "2026-11-23",
+          "remark": null,
+          "responseType": 2
+        },
+        "discountApplied": {
+          "fieldNameEn": "DISCOUNT_APPLIED",
+          "fieldNameHe": "הנחה מוחלת",
+          "value": true,
+          "remark": null,
+          "responseType": 2
+        }
+      },
+      "GetCardBalance": {
+        "balance": {
+          "fieldNameEn": "BALANCE_ILS",
+          "fieldNameHe": "יתרה בכרטיס (₪)",
+          "value": 84.5,
+          "remark": null,
+          "responseType": 1
+        },
+        "lastTopUpDate": {
+          "fieldNameEn": "LAST_TOP_UP_DATE",
+          "fieldNameHe": "תאריך טעינה אחרון",
+          "value": "2026-10-30",
+          "remark": null,
+          "responseType": 2
+        },
+        "autoReloadEnabled": {
+          "fieldNameEn": "AUTO_RELOAD_ENABLED",
+          "fieldNameHe": "טעינה אוטומטית פעילה",
+          "value": true,
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000111": {
+      "GetActivePasses": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימים מנויים",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "passName": {
+              "fieldNameEn": "PASS_NAME",
+              "fieldNameHe": "שם המנוי",
+              "value": "מנוי חודשי – אזור מרכז",
+              "remark": null,
+              "responseType": 1
+            },
+            "validFrom": {
+              "fieldNameEn": "VALID_FROM",
+              "fieldNameHe": "בתוקף מ-",
+              "value": "2026-10-01",
+              "remark": null,
+              "responseType": 1
+            },
+            "validUntil": {
+              "fieldNameEn": "VALID_UNTIL",
+              "fieldNameHe": "בתוקף עד",
+              "value": "2026-11-30",
+              "remark": null,
+              "responseType": 1
+            },
+            "zones": {
+              "fieldNameEn": "ZONES",
+              "fieldNameHe": "אזורים",
+              "value": "מרכז",
+              "remark": null,
+              "responseType": 2
+            },
+            "passId": {
+              "fieldNameEn": "PASS_ID",
+              "fieldNameHe": "מזהה מנוי",
+              "value": "P-3001",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "passName": {
+              "fieldNameEn": "PASS_NAME",
+              "fieldNameHe": "שם המנוי",
+              "value": "מנוי חודשי – כל הארץ",
+              "remark": null,
+              "responseType": 1
+            },
+            "validFrom": {
+              "fieldNameEn": "VALID_FROM",
+              "fieldNameHe": "בתוקף מ-",
+              "value": "2026-09-01",
+              "remark": null,
+              "responseType": 1
+            },
+            "validUntil": {
+              "fieldNameEn": "VALID_UNTIL",
+              "fieldNameHe": "בתוקף עד",
+              "value": "2026-09-30",
+              "remark": null,
+              "responseType": 1
+            },
+            "zones": {
+              "fieldNameEn": "ZONES",
+              "fieldNameHe": "אזורים",
+              "value": "ארצי",
+              "remark": null,
+              "responseType": 2
+            },
+            "passId": {
+              "fieldNameEn": "PASS_ID",
+              "fieldNameHe": "מזהה מנוי",
+              "value": "P-3002",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "GetPassRenewalOptions": {
+        "canRenew": {
+          "fieldNameEn": "CAN_RENEW",
+          "fieldNameHe": "האם ניתן לחדש",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "renewalPrice": {
+          "fieldNameEn": "RENEWAL_PRICE_ILS",
+          "fieldNameHe": "מחיר חידוש (₪)",
+          "value": 190.0,
+          "remark": null,
+          "responseType": 1
+        },
+        "earliestRenewalDate": {
+          "fieldNameEn": "EARLIEST_RENEWAL_DATE",
+          "fieldNameHe": "מועד חידוש מוקדם ביותר",
+          "value": "2026-11-23",
+          "remark": null,
+          "responseType": 2
+        },
+        "discountApplied": {
+          "fieldNameEn": "DISCOUNT_APPLIED",
+          "fieldNameHe": "הנחה מוחלת",
+          "value": true,
+          "remark": null,
+          "responseType": 2
+        }
+      },
+      "GetCardBalance": {
+        "balance": {
+          "fieldNameEn": "BALANCE_ILS",
+          "fieldNameHe": "יתרה בכרטיס (₪)",
+          "value": 84.5,
+          "remark": null,
+          "responseType": 1
+        },
+        "lastTopUpDate": {
+          "fieldNameEn": "LAST_TOP_UP_DATE",
+          "fieldNameHe": "תאריך טעינה אחרון",
+          "value": "2026-10-30",
+          "remark": null,
+          "responseType": 2
+        },
+        "autoReloadEnabled": {
+          "fieldNameEn": "AUTO_RELOAD_ENABLED",
+          "fieldNameHe": "טעינה אוטומטית פעילה",
+          "value": true,
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000112": {
+      "GetActivePasses": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימים מנויים",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "passName": {
+              "fieldNameEn": "PASS_NAME",
+              "fieldNameHe": "שם המנוי",
+              "value": "מנוי חודשי – אזור מרכז",
+              "remark": null,
+              "responseType": 1
+            },
+            "validFrom": {
+              "fieldNameEn": "VALID_FROM",
+              "fieldNameHe": "בתוקף מ-",
+              "value": "2026-10-01",
+              "remark": null,
+              "responseType": 1
+            },
+            "validUntil": {
+              "fieldNameEn": "VALID_UNTIL",
+              "fieldNameHe": "בתוקף עד",
+              "value": "2026-11-30",
+              "remark": null,
+              "responseType": 1
+            },
+            "zones": {
+              "fieldNameEn": "ZONES",
+              "fieldNameHe": "אזורים",
+              "value": "מרכז",
+              "remark": null,
+              "responseType": 2
+            },
+            "passId": {
+              "fieldNameEn": "PASS_ID",
+              "fieldNameHe": "מזהה מנוי",
+              "value": "P-3001",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "passName": {
+              "fieldNameEn": "PASS_NAME",
+              "fieldNameHe": "שם המנוי",
+              "value": "מנוי חודשי – כל הארץ",
+              "remark": null,
+              "responseType": 1
+            },
+            "validFrom": {
+              "fieldNameEn": "VALID_FROM",
+              "fieldNameHe": "בתוקף מ-",
+              "value": "2026-09-01",
+              "remark": null,
+              "responseType": 1
+            },
+            "validUntil": {
+              "fieldNameEn": "VALID_UNTIL",
+              "fieldNameHe": "בתוקף עד",
+              "value": "2026-09-30",
+              "remark": null,
+              "responseType": 1
+            },
+            "zones": {
+              "fieldNameEn": "ZONES",
+              "fieldNameHe": "אזורים",
+              "value": "ארצי",
+              "remark": null,
+              "responseType": 2
+            },
+            "passId": {
+              "fieldNameEn": "PASS_ID",
+              "fieldNameHe": "מזהה מנוי",
+              "value": "P-3002",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "GetPassRenewalOptions": {
+        "canRenew": {
+          "fieldNameEn": "CAN_RENEW",
+          "fieldNameHe": "האם ניתן לחדש",
+          "value": false,
+          "remark": null,
+          "responseType": 1
+        },
+        "reason": {
+          "fieldNameEn": "REASON",
+          "fieldNameHe": "סיבה",
+          "value": "המנוי הזה הופסק ואינו ניתן לחידוש",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000113": {
+      "GetFineDetails": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימים קנסות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "issuedOn": {
+              "fieldNameEn": "ISSUED_ON",
+              "fieldNameHe": "תאריך הקנס",
+              "value": "2026-10-20",
+              "remark": null,
+              "responseType": 1
+            },
+            "route": {
+              "fieldNameEn": "ROUTE",
+              "fieldNameHe": "קו",
+              "value": "קו 40",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 180.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "appealDeadline": {
+              "fieldNameEn": "APPEAL_DEADLINE",
+              "fieldNameHe": "מועד אחרון לערעור",
+              "value": "2026-11-20",
+              "remark": null,
+              "responseType": 2
+            },
+            "fineId": {
+              "fieldNameEn": "FINE_ID",
+              "fieldNameHe": "מספר קנס",
+              "value": "F-9001",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "issuedOn": {
+              "fieldNameEn": "ISSUED_ON",
+              "fieldNameHe": "תאריך הקנס",
+              "value": "2026-08-02",
+              "remark": null,
+              "responseType": 1
+            },
+            "route": {
+              "fieldNameEn": "ROUTE",
+              "fieldNameHe": "קו",
+              "value": "רכבת קלה אדומה",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 180.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "appealDeadline": {
+              "fieldNameEn": "APPEAL_DEADLINE",
+              "fieldNameHe": "מועד אחרון לערעור",
+              "value": "2026-09-02",
+              "remark": null,
+              "responseType": 2
+            },
+            "fineId": {
+              "fieldNameEn": "FINE_ID",
+              "fieldNameHe": "מספר קנס",
+              "value": "F-9002",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "CheckFineAppealWindow": {
+        "canAppeal": {
+          "fieldNameEn": "CAN_APPEAL",
+          "fieldNameHe": "האם ניתן לערער",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "daysLeft": {
+          "fieldNameEn": "DAYS_LEFT",
+          "fieldNameHe": "ימים שנותרו לערעור",
+          "value": 8,
+          "remark": null,
+          "responseType": 1
+        },
+        "appealDeadline": {
+          "fieldNameEn": "APPEAL_DEADLINE",
+          "fieldNameHe": "מועד אחרון לערעור",
+          "value": "2026-11-20",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000114": {
+      "GetFineDetails": {
+        "hasData": {
+          "fieldNameEn": "HAS_DATA",
+          "fieldNameHe": "האם קיימים קנסות",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "result": [
+          {
+            "issuedOn": {
+              "fieldNameEn": "ISSUED_ON",
+              "fieldNameHe": "תאריך הקנס",
+              "value": "2026-10-20",
+              "remark": null,
+              "responseType": 1
+            },
+            "route": {
+              "fieldNameEn": "ROUTE",
+              "fieldNameHe": "קו",
+              "value": "קו 40",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 180.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "appealDeadline": {
+              "fieldNameEn": "APPEAL_DEADLINE",
+              "fieldNameHe": "מועד אחרון לערעור",
+              "value": "2026-11-20",
+              "remark": null,
+              "responseType": 2
+            },
+            "fineId": {
+              "fieldNameEn": "FINE_ID",
+              "fieldNameHe": "מספר קנס",
+              "value": "F-9001",
+              "remark": null,
+              "responseType": 2
+            }
+          },
+          {
+            "issuedOn": {
+              "fieldNameEn": "ISSUED_ON",
+              "fieldNameHe": "תאריך הקנס",
+              "value": "2026-08-02",
+              "remark": null,
+              "responseType": 1
+            },
+            "route": {
+              "fieldNameEn": "ROUTE",
+              "fieldNameHe": "קו",
+              "value": "רכבת קלה אדומה",
+              "remark": null,
+              "responseType": 1
+            },
+            "amount": {
+              "fieldNameEn": "AMOUNT_ILS",
+              "fieldNameHe": "סכום (₪)",
+              "value": 180.0,
+              "remark": null,
+              "responseType": 1
+            },
+            "appealDeadline": {
+              "fieldNameEn": "APPEAL_DEADLINE",
+              "fieldNameHe": "מועד אחרון לערעור",
+              "value": "2026-09-02",
+              "remark": null,
+              "responseType": 2
+            },
+            "fineId": {
+              "fieldNameEn": "FINE_ID",
+              "fieldNameHe": "מספר קנס",
+              "value": "F-9002",
+              "remark": null,
+              "responseType": 2
+            }
+          }
+        ]
+      },
+      "CheckFineAppealWindow": {
+        "canAppeal": {
+          "fieldNameEn": "CAN_APPEAL",
+          "fieldNameHe": "האם ניתן לערער",
+          "value": false,
+          "remark": null,
+          "responseType": 1
+        },
+        "appealDeadline": {
+          "fieldNameEn": "APPEAL_DEADLINE",
+          "fieldNameHe": "מועד אחרון לערעור",
+          "value": "2026-09-02",
+          "remark": null,
+          "responseType": 2
+        },
+        "reason": {
+          "fieldNameEn": "REASON",
+          "fieldNameHe": "סיבה",
+          "value": "חלפו 30 יום מתאריך הקנס",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000115": {
+      "GetRiderProfile": {
+        "riderCategory": {
+          "fieldNameEn": "RIDER_CATEGORY",
+          "fieldNameHe": "קטגוריית נוסע",
+          "value": "regular",
+          "remark": null,
+          "responseType": 1
+        },
+        "discountValidUntil": {
+          "fieldNameEn": "DISCOUNT_VALID_UNTIL",
+          "fieldNameHe": "תוקף ההנחה עד",
+          "value": null,
+          "remark": null,
+          "responseType": 2
+        },
+        "cardId": {
+          "fieldNameEn": "CARD_ID",
+          "fieldNameHe": "מספר כרטיס",
+          "value": "MC-100200",
+          "remark": null,
+          "responseType": 2
+        },
+        "cardStatus": {
+          "fieldNameEn": "CARD_STATUS",
+          "fieldNameHe": "סטטוס כרטיס",
+          "value": "lost",
+          "remark": null,
+          "responseType": 1
+        }
+      },
+      "GetCardReplacementOptions": {
+        "replacementEligible": {
+          "fieldNameEn": "REPLACEMENT_ELIGIBLE",
+          "fieldNameHe": "זכאי להחלפה",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "replacementFee": {
+          "fieldNameEn": "REPLACEMENT_FEE_ILS",
+          "fieldNameHe": "עלות החלפה (₪)",
+          "value": 20.0,
+          "remark": null,
+          "responseType": 1
+        },
+        "balanceTransferable": {
+          "fieldNameEn": "BALANCE_TRANSFERABLE",
+          "fieldNameHe": "האם היתרה מועברת לכרטיס החדש",
+          "value": true,
+          "remark": null,
+          "responseType": 1
+        },
+        "blockedOn": {
+          "fieldNameEn": "BLOCKED_ON",
+          "fieldNameHe": "תאריך החסימה",
+          "value": "2026-11-08",
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    },
+    "100000116": {
+      "GetRiderProfile": {
+        "riderCategory": {
+          "fieldNameEn": "RIDER_CATEGORY",
+          "fieldNameHe": "קטגוריית נוסע",
+          "value": "regular",
+          "remark": null,
+          "responseType": 1
+        },
+        "discountValidUntil": {
+          "fieldNameEn": "DISCOUNT_VALID_UNTIL",
+          "fieldNameHe": "תוקף ההנחה עד",
+          "value": null,
+          "remark": null,
+          "responseType": 2
+        },
+        "cardId": {
+          "fieldNameEn": "CARD_ID",
+          "fieldNameHe": "מספר כרטיס",
+          "value": "MC-100200",
+          "remark": null,
+          "responseType": 2
+        },
+        "cardStatus": {
+          "fieldNameEn": "CARD_STATUS",
+          "fieldNameHe": "סטטוס כרטיס",
+          "value": "active",
+          "remark": null,
+          "responseType": 1
+        }
+      }
+    },
+    "100000117": {
+      "GetRiderProfile": {
+        "riderCategory": {
+          "fieldNameEn": "RIDER_CATEGORY",
+          "fieldNameHe": "קטגוריית נוסע",
+          "value": "regular",
+          "remark": null,
+          "responseType": 1
+        },
+        "discountValidUntil": {
+          "fieldNameEn": "DISCOUNT_VALID_UNTIL",
+          "fieldNameHe": "תוקף ההנחה עד",
+          "value": null,
+          "remark": null,
+          "responseType": 2
+        },
+        "cardId": {
+          "fieldNameEn": "CARD_ID",
+          "fieldNameHe": "מספר כרטיס",
+          "value": "MC-100200",
+          "remark": null,
+          "responseType": 2
+        },
+        "cardStatus": {
+          "fieldNameEn": "CARD_STATUS",
+          "fieldNameHe": "סטטוס כרטיס",
+          "value": "active",
+          "remark": null,
+          "responseType": 1
+        }
+      },
+      "GetCardBalance": {
+        "balance": {
+          "fieldNameEn": "BALANCE_ILS",
+          "fieldNameHe": "יתרה בכרטיס (₪)",
+          "value": 84.5,
+          "remark": null,
+          "responseType": 1
+        },
+        "lastTopUpDate": {
+          "fieldNameEn": "LAST_TOP_UP_DATE",
+          "fieldNameHe": "תאריך טעינה אחרון",
+          "value": "2026-10-30",
+          "remark": null,
+          "responseType": 2
+        },
+        "autoReloadEnabled": {
+          "fieldNameEn": "AUTO_RELOAD_ENABLED",
+          "fieldNameHe": "טעינה אוטומטית פעילה",
+          "value": true,
+          "remark": null,
+          "responseType": 2
+        }
+      }
+    }
+  }
+}

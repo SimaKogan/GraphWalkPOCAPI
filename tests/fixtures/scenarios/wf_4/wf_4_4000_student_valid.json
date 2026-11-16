@@ -1,0 +1,24 @@
+{
+  "scenario_id": "wf_4_4000_student_valid",
+  "user_id": "100000001",
+  "first_query": "האם אני עדיין זכאי להנחת סטודנט?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetRiderProfile": "tests/fixtures/api_responses/wf_4/wf_4_4000_student_valid/GetRiderProfile.json",
+    "CheckDiscountEligibility": "tests/fixtures/api_responses/wf_4/wf_4_4000_student_valid/CheckDiscountEligibility.json"
+  },
+  "scripted_user_replies": [],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 4",
+    "gt_answer": "קטגוריית הנוסע היא סטודנט, ההנחה (33%) בתוקף עד 30.06.2030.",
+    "facts_contains_keys": [
+      "CheckDiscountEligibility_response",
+      "GetRiderProfile_response",
+      "is_discount_valid"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

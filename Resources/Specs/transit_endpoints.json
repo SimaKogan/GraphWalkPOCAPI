@@ -1,0 +1,130 @@
+{
+  "endpoints": {
+    "GetRiderProfile": {
+      "method": "GET",
+      "end_point": "/GetRiderProfile",
+      "params_in_url": [
+        "riderId"
+      ],
+      "notes": [
+        "rider profile and card status"
+      ]
+    },
+    "GetCardBalance": {
+      "method": "GET",
+      "end_point": "/GetCardBalance",
+      "params_in_url": [
+        "riderId"
+      ],
+      "notes": [
+        "stored-value balance"
+      ]
+    },
+    "GetActivePasses": {
+      "method": "GET",
+      "end_point": "/GetActivePasses",
+      "params_in_url": [
+        "riderId"
+      ],
+      "notes": [
+        "passes that are active or recently expired"
+      ]
+    },
+    "GetTripHistory": {
+      "method": "GET",
+      "end_point": "/GetTripHistory",
+      "params_in_url": [
+        "riderId",
+        "daysBack"
+      ],
+      "notes": [
+        "recent trips"
+      ]
+    },
+    "CheckDuplicateCharge": {
+      "method": "GET",
+      "end_point": "/CheckDuplicateCharge",
+      "params_in_url": [
+        "riderId",
+        "tripId"
+      ],
+      "notes": [
+        "was the trip charged twice"
+      ]
+    },
+    "CheckRefundEligibility": {
+      "method": "GET",
+      "end_point": "/CheckRefundEligibility",
+      "params_in_url": [
+        "riderId",
+        "tripId"
+      ],
+      "notes": [
+        "refund rules applied to one trip"
+      ]
+    },
+    "GetRefundRequests": {
+      "method": "GET",
+      "end_point": "/GetRefundRequests",
+      "params_in_url": [
+        "riderId"
+      ],
+      "notes": [
+        "refund requests already submitted"
+      ]
+    },
+    "CheckDiscountEligibility": {
+      "method": "GET",
+      "end_point": "/CheckDiscountEligibility",
+      "params_in_url": [
+        "riderId",
+        "riderCategory"
+      ],
+      "notes": [
+        "discount rules for a rider category"
+      ]
+    },
+    "GetPassRenewalOptions": {
+      "method": "GET",
+      "end_point": "/GetPassRenewalOptions",
+      "params_in_url": [
+        "riderId",
+        "passId"
+      ],
+      "notes": [
+        "renewal terms of one pass"
+      ]
+    },
+    "GetFineDetails": {
+      "method": "GET",
+      "end_point": "/GetFineDetails",
+      "params_in_url": [
+        "riderId"
+      ],
+      "notes": [
+        "inspection fines"
+      ]
+    },
+    "CheckFineAppealWindow": {
+      "method": "GET",
+      "end_point": "/CheckFineAppealWindow",
+      "params_in_url": [
+        "riderId",
+        "fineId"
+      ],
+      "notes": [
+        "appeal deadline of one fine"
+      ]
+    },
+    "GetCardReplacementOptions": {
+      "method": "GET",
+      "end_point": "/GetCardReplacementOptions",
+      "params_in_url": [
+        "riderId"
+      ],
+      "notes": [
+        "replacement of a lost or blocked card"
+      ]
+    }
+  }
+}

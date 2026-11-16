@@ -1,0 +1,130 @@
+{
+  "blocks": {
+    "block 1 - select trip": {
+      "title": "בחירת נסיעה",
+      "description": "שליפת הנסיעות האחרונות וקבלת בחירת הנסיעה מהנוסע",
+      "action": {
+        "id": "select_trip",
+        "params": {}
+      },
+      "parent_id": "duplicate_charge"
+    },
+    "block 2 - duplicate charge": {
+      "title": "בדיקת חיוב כפול",
+      "description": "בדיקה האם הנסיעה שנבחרה חויבה פעמיים",
+      "action": {
+        "id": "check_duplicate_charge",
+        "params": {}
+      },
+      "parent_id": "duplicate_charge"
+    },
+    "block 3 - refund eligibility": {
+      "title": "זכאות להחזר על נסיעה",
+      "description": "בדיקת זכאות להחזר כספי על הנסיעה שנבחרה",
+      "action": {
+        "id": "check_refund_eligibility",
+        "params": {}
+      },
+      "parent_id": "trip_refund"
+    },
+    "block 4 - refund requests": {
+      "title": "בקשות החזר קיימות",
+      "description": "שליפת בקשות ההחזר שהנוסע כבר הגיש",
+      "action": {
+        "id": "get_refund_requests",
+        "params": {}
+      },
+      "parent_id": "refund_status"
+    },
+    "block 5 - rider profile": {
+      "title": "פרופיל נוסע",
+      "description": "קטגוריית הנוסע, תוקף ההנחה וסטטוס הכרטיס",
+      "action": {
+        "id": "get_rider_profile",
+        "params": {}
+      },
+      "parent_id": "rider_discounts"
+    },
+    "block 6 - discount eligibility": {
+      "title": "זכאות להנחה",
+      "description": "בדיקת כללי ההנחה לקטגוריית הנוסע",
+      "action": {
+        "id": "check_discount_eligibility",
+        "params": {}
+      },
+      "parent_id": "rider_discounts"
+    },
+    "block 7 - discount validity": {
+      "title": "תוקף ההנחה",
+      "description": "בדיקה האם ההנחה של הנוסע עדיין בתוקף",
+      "action": {
+        "id": "check_discount_validity",
+        "params": {}
+      },
+      "parent_id": "rider_discounts"
+    },
+    "block 8 - select pass": {
+      "title": "בחירת מנוי",
+      "description": "שליפת המנויים של הנוסע וקבלת בחירת המנוי",
+      "action": {
+        "id": "select_active_pass",
+        "params": {}
+      },
+      "parent_id": "pass_renewal"
+    },
+    "block 9 - renewal options": {
+      "title": "תנאי חידוש מנוי",
+      "description": "מחיר, מועד ואפשרות חידוש של המנוי שנבחר",
+      "action": {
+        "id": "get_pass_renewal_options",
+        "params": {}
+      },
+      "parent_id": "pass_renewal"
+    },
+    "block 10 - card balance": {
+      "title": "יתרת כרטיס",
+      "description": "יתרת הערך הצבור בכרטיס",
+      "action": {
+        "id": "get_card_balance",
+        "params": {}
+      },
+      "parent_id": "card_balance"
+    },
+    "block 11 - balance after renewal": {
+      "title": "יתרה אחרי חידוש",
+      "description": "חישוב היתרה שתישאר בכרטיס אחרי תשלום החידוש",
+      "action": {
+        "id": "compute_balance_after_renewal",
+        "params": {}
+      },
+      "parent_id": "pass_renewal"
+    },
+    "block 12 - select fine": {
+      "title": "בחירת קנס",
+      "description": "שליפת הקנסות של הנוסע וקבלת בחירת הקנס",
+      "action": {
+        "id": "select_fine",
+        "params": {}
+      },
+      "parent_id": "fine_appeal"
+    },
+    "block 13 - appeal window": {
+      "title": "מועד ערעור על קנס",
+      "description": "בדיקה האם עדיין ניתן לערער על הקנס שנבחר",
+      "action": {
+        "id": "check_fine_appeal_window",
+        "params": {}
+      },
+      "parent_id": "fine_appeal"
+    },
+    "block 14 - card replacement": {
+      "title": "החלפת כרטיס",
+      "description": "תנאי החלפת כרטיס אבוד או חסום",
+      "action": {
+        "id": "get_card_replacement_options",
+        "params": {}
+      },
+      "parent_id": "lost_or_blocked_card"
+    }
+  }
+}

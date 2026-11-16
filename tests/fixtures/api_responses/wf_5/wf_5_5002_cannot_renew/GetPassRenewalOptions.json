@@ -1,0 +1,16 @@
+{
+  "canRenew": {
+    "fieldNameEn": "CAN_RENEW",
+    "fieldNameHe": "האם ניתן לחדש",
+    "value": false,
+    "remark": null,
+    "responseType": 1
+  },
+  "reason": {
+    "fieldNameEn": "REASON",
+    "fieldNameHe": "סיבה",
+    "value": "המנוי הזה הופסק ואינו ניתן לחידוש",
+    "remark": null,
+    "responseType": 2
+  }
+}

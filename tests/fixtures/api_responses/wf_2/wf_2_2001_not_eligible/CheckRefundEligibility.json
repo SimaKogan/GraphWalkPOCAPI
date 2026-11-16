@@ -1,0 +1,16 @@
+{
+  "isEligible": {
+    "fieldNameEn": "IS_ELIGIBLE",
+    "fieldNameHe": "האם זכאי להחזר",
+    "value": false,
+    "remark": null,
+    "responseType": 1
+  },
+  "reason": {
+    "fieldNameEn": "REASON",
+    "fieldNameHe": "סיבת אי-הזכאות",
+    "value": "הנסיעה בוצעה ושולמה בתעריף הנכון",
+    "remark": null,
+    "responseType": 2
+  }
+}

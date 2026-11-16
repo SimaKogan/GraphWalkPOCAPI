@@ -1,0 +1,26 @@
+{
+  "scenario_id": "test_general_integration",
+  "user_id": "100000001",
+  "first_query": "מה ההנחה לאזרח ותיק בכרטיס מסלול? וגם האם עוד אפשר לערער על הקנס שקיבלתי?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetFineDetails": "tests/fixtures/api_responses/general_integration/test_general_integration/GetFineDetails.json",
+    "CheckFineAppealWindow": "tests/fixtures/api_responses/general_integration/test_general_integration/CheckFineAppealWindow.json"
+  },
+  "scripted_user_replies": [
+    1
+  ],
+  "expectations": {
+    "route": "general",
+    "workflow_id": "wf 6",
+    "gt_answer": "אזרח ותיק מקבל 50% הנחה בכרטיס מסלול. ניתן עדיין לערער על הקנס: נותרו 8 ימים.",
+    "facts_contains_keys": [
+      "CheckFineAppealWindow_response",
+      "GetFineDetails_response",
+      "selected_fine_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

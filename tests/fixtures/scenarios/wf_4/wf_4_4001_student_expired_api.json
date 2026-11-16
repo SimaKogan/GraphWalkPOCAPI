@@ -1,0 +1,21 @@
+{
+  "scenario_id": "wf_4_4001_student_expired_api",
+  "user_id": "100000108",
+  "first_query": "למה לא קיבלתי הנחת סטודנט בנסיעה האחרונה?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 4,
+  "external_personal_info_base_url": "http://localhost:9000/mock-api",
+  "scripted_user_replies": [],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 4",
+    "gt_answer": "ההנחה פגה ב-30.06.2024. יש להעלות אישור לימודים עדכני.",
+    "facts_contains_keys": [
+      "CheckDiscountEligibility_response",
+      "GetRiderProfile_response",
+      "is_discount_valid"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

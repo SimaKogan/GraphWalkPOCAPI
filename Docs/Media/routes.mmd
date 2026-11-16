@@ -1,0 +1,56 @@
+---
+config:
+  layout: dagre
+---
+flowchart TD
+ subgraph UserFlow["User Interaction"]
+        U["User Portal & Chatbot"]
+        Router["Router Agent<br>LLM-driven Delegation &amp; Clarification"]
+  end
+ subgraph GeneralRoute["General Info Route (RAG/KAG)"]
+        KAG["KAG Agent<br>Vector/Graph DB Retrieval"]
+        CriticGen["General Critic<br>Validate Reasoning"]
+        AnswerGen["Response Agent<br>Generate Answer"]
+  end
+ subgraph TraversalFlow["Topic Classification Branch"]
+        Cands["Select Top-k Topics"]
+        Beam["Rank top-k Workflows &amp Suggest top pick"]
+  end
+ subgraph CQFlow["Curated-Question Branch"]
+        QSel["Curated-Question Retrieval<br>(embed query + ANN top-k)"]
+        QSumm["Group by Workflow<br>(curated examples + cosine stats)"]
+  end
+ subgraph PersonalRoute["Personal Info Route (Workflow Execution)"]
+        StartSel["Start Personal Selection"]
+        TraversalFlow
+        CQFlow
+        Agg["Aggregate by Workflow<br>(provenance + curated examples + similarity)"]
+        CriticWF["Workflow Selection Critic"]
+        Orchestrator["Executor<br>Deterministic Workflow Runner"]
+        ResponsePers["Response Agent<br>Generate Answer"]
+  end
+ subgraph OtherRoutes["Other Routes"]
+        Blocked["RouteAnswerAgent<br>Policy / Restricted Response"]
+        Casual["RouteAnswerAgent<br>Casual Conversation Response"]
+  end
+    U -- Ask Question --> Router
+    Router -- General Query --> KAG
+    KAG --> CriticGen
+    CriticGen --> AnswerGen
+    Router -- Personal Query<br>with Auth --> StartSel
+    StartSel --> Cands & QSel
+    Cands --> Beam
+    Beam --> Agg
+    QSel --> QSumm
+    QSumm --> Agg
+    Agg --> CriticWF
+    CriticWF -- Clarification Needed --> U
+    CriticWF -- Approved --> Orchestrator
+    Orchestrator --> ResponsePers
+    Router -- Clarification Needed --> U
+    Router -- Blocked / Restricted --> Blocked
+    Router -- Casual --> Casual
+    AnswerGen --> Final["Final Answer to User"]
+    ResponsePers --> Final
+    Blocked --> Final
+    Casual --> Final

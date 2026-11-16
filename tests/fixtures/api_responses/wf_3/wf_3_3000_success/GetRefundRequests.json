@@ -1,0 +1,71 @@
+{
+  "hasData": {
+    "fieldNameEn": "HAS_DATA",
+    "fieldNameHe": "האם קיימות בקשות",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "result": [
+    {
+      "requestId": {
+        "fieldNameEn": "REQUEST_ID",
+        "fieldNameHe": "מספר בקשה",
+        "value": "RR-7001",
+        "remark": null,
+        "responseType": 1
+      },
+      "submittedOn": {
+        "fieldNameEn": "SUBMITTED_ON",
+        "fieldNameHe": "תאריך הגשה",
+        "value": "2026-11-02",
+        "remark": null,
+        "responseType": 1
+      },
+      "amount": {
+        "fieldNameEn": "AMOUNT_ILS",
+        "fieldNameHe": "סכום (₪)",
+        "value": 6.0,
+        "remark": null,
+        "responseType": 1
+      },
+      "status": {
+        "fieldNameEn": "STATUS",
+        "fieldNameHe": "סטטוס",
+        "value": "בטיפול",
+        "remark": null,
+        "responseType": 1
+      }
+    },
+    {
+      "requestId": {
+        "fieldNameEn": "REQUEST_ID",
+        "fieldNameHe": "מספר בקשה",
+        "value": "RR-6990",
+        "remark": null,
+        "responseType": 1
+      },
+      "submittedOn": {
+        "fieldNameEn": "SUBMITTED_ON",
+        "fieldNameHe": "תאריך הגשה",
+        "value": "2026-10-05",
+        "remark": null,
+        "responseType": 1
+      },
+      "amount": {
+        "fieldNameEn": "AMOUNT_ILS",
+        "fieldNameHe": "סכום (₪)",
+        "value": 12.0,
+        "remark": null,
+        "responseType": 1
+      },
+      "status": {
+        "fieldNameEn": "STATUS",
+        "fieldNameHe": "סטטוס",
+        "value": "אושרה",
+        "remark": null,
+        "responseType": 1
+      }
+    }
+  ]
+}

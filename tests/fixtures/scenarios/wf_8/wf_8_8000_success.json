@@ -1,0 +1,23 @@
+{
+  "scenario_id": "wf_8_8000_success",
+  "user_id": "100000001",
+  "first_query": "מה היתרה והסטטוס של הכרטיס שלי?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetRiderProfile": "tests/fixtures/api_responses/wf_8/wf_8_8000_success/GetRiderProfile.json",
+    "GetCardBalance": "tests/fixtures/api_responses/wf_8/wf_8_8000_success/GetCardBalance.json"
+  },
+  "scripted_user_replies": [],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 8",
+    "gt_answer": "הכרטיס פעיל, היתרה היא 84.5 ₪ והטעינה האחרונה הייתה ב-30.10.2026.",
+    "facts_contains_keys": [
+      "GetCardBalance_response",
+      "GetRiderProfile_response"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

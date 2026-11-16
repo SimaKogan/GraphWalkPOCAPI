@@ -1,0 +1,23 @@
+{
+  "isEligible": {
+    "fieldNameEn": "IS_ELIGIBLE",
+    "fieldNameHe": "האם זכאי להנחה",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "discountPercent": {
+    "fieldNameEn": "DISCOUNT_PERCENT",
+    "fieldNameHe": "אחוז ההנחה",
+    "value": 33,
+    "remark": null,
+    "responseType": 1
+  },
+  "requiredDocument": {
+    "fieldNameEn": "REQUIRED_DOCUMENT",
+    "fieldNameHe": "אישור נדרש",
+    "value": "אישור לימודים עדכני",
+    "remark": null,
+    "responseType": 2
+  }
+}

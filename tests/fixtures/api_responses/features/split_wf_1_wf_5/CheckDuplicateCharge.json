@@ -1,0 +1,23 @@
+{
+  "isDuplicate": {
+    "fieldNameEn": "IS_DUPLICATE",
+    "fieldNameHe": "האם חויבה פעמיים",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "duplicateOfTripId": {
+    "fieldNameEn": "DUPLICATE_OF_TRIP_ID",
+    "fieldNameHe": "מזהה החיוב הכפול",
+    "value": "T-50012",
+    "remark": null,
+    "responseType": 2
+  },
+  "minutesBetweenCharges": {
+    "fieldNameEn": "MINUTES_BETWEEN",
+    "fieldNameHe": "דקות בין החיובים",
+    "value": 2,
+    "remark": null,
+    "responseType": 2
+  }
+}

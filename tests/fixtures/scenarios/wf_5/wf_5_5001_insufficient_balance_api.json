@@ -1,0 +1,25 @@
+{
+  "scenario_id": "wf_5_5001_insufficient_balance_api",
+  "user_id": "100000111",
+  "first_query": "יש לי מספיק כסף בכרטיס כדי לחדש את המנוי?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 4,
+  "external_personal_info_base_url": "http://localhost:9000/mock-api",
+  "scripted_user_replies": [
+    1
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 5",
+    "gt_answer": "ניתן לחדש במחיר 190 ₪, אבל היתרה בכרטיס אינה מספיקה: חסרים 105.5 ₪.",
+    "facts_contains_keys": [
+      "GetActivePasses_response",
+      "GetCardBalance_response",
+      "GetPassRenewalOptions_response",
+      "balance_after_renewal",
+      "selected_pass_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

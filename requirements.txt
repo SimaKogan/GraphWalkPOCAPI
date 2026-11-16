@@ -1,0 +1,24 @@
+pandas
+fastapi
+uvicorn
+google-cloud-aiplatform
+langchain==0.3.27
+vertexai
+numpy
+scikit-learn
+pydantic-settings
+bcrypt
+tqdm
+python-multipart
+python-dotenv
+requests
+httpx
+google-auth
+google-genai
+markdown
+itsdangerous
+
+# --- General pipeline (GeneralPipeline/) dependencies ---
+weaviate-client
+aiohttp
+psycopg2-binary

@@ -1,0 +1,23 @@
+{
+  "scenario_id": "wf_5_5002_cannot_renew_api",
+  "user_id": "100000112",
+  "first_query": "המנוי שלי פג, איך מחדשים?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 4,
+  "external_personal_info_base_url": "http://localhost:9000/mock-api",
+  "scripted_user_replies": [
+    2
+  ],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 5",
+    "gt_answer": "המנוי שנבחר הופסק ואינו ניתן לחידוש.",
+    "facts_contains_keys": [
+      "GetActivePasses_response",
+      "GetPassRenewalOptions_response",
+      "selected_pass_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

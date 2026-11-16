@@ -1,0 +1,30 @@
+{
+  "canRenew": {
+    "fieldNameEn": "CAN_RENEW",
+    "fieldNameHe": "האם ניתן לחדש",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "renewalPrice": {
+    "fieldNameEn": "RENEWAL_PRICE_ILS",
+    "fieldNameHe": "מחיר חידוש (₪)",
+    "value": 60.0,
+    "remark": null,
+    "responseType": 1
+  },
+  "earliestRenewalDate": {
+    "fieldNameEn": "EARLIEST_RENEWAL_DATE",
+    "fieldNameHe": "מועד חידוש מוקדם ביותר",
+    "value": "2026-11-23",
+    "remark": null,
+    "responseType": 2
+  },
+  "discountApplied": {
+    "fieldNameEn": "DISCOUNT_APPLIED",
+    "fieldNameHe": "הנחה מוחלת",
+    "value": true,
+    "remark": null,
+    "responseType": 2
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "riderCategory": {
+    "fieldNameEn": "RIDER_CATEGORY",
+    "fieldNameHe": "קטגוריית נוסע",
+    "value": "regular",
+    "remark": null,
+    "responseType": 1
+  },
+  "discountValidUntil": {
+    "fieldNameEn": "DISCOUNT_VALID_UNTIL",
+    "fieldNameHe": "תוקף ההנחה עד",
+    "value": null,
+    "remark": null,
+    "responseType": 2
+  },
+  "cardId": {
+    "fieldNameEn": "CARD_ID",
+    "fieldNameHe": "מספר כרטיס",
+    "value": "MC-100200",
+    "remark": null,
+    "responseType": 2
+  },
+  "cardStatus": {
+    "fieldNameEn": "CARD_STATUS",
+    "fieldNameHe": "סטטוס כרטיס",
+    "value": "lost",
+    "remark": null,
+    "responseType": 1
+  }
+}

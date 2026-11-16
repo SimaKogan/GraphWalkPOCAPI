@@ -1,0 +1,22 @@
+{
+  "scenario_id": "wf_1_1002_no_trips",
+  "user_id": "100000001",
+  "first_query": "חויבתי פעמיים על נסיעה, תבדקו",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 3,
+  "api_responses": {
+    "GetTripHistory": "tests/fixtures/api_responses/wf_1/wf_1_1002_no_trips/GetTripHistory.json"
+  },
+  "scripted_user_replies": [],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 1",
+    "gt_answer": "לא נמצאו נסיעות ב-30 הימים האחרונים.",
+    "facts_contains_keys": [
+      "GetTripHistory_response",
+      "selected_trip_details"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

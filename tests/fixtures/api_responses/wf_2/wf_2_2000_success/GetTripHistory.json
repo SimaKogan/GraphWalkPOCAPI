@@ -1,0 +1,122 @@
+{
+  "hasData": {
+    "fieldNameEn": "HAS_DATA",
+    "fieldNameHe": "האם קיימות נסיעות",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "result": [
+    {
+      "tripDate": {
+        "fieldNameEn": "TRIP_DATE",
+        "fieldNameHe": "תאריך נסיעה",
+        "value": "2026-11-10 08:15",
+        "remark": null,
+        "responseType": 1
+      },
+      "routeName": {
+        "fieldNameEn": "ROUTE_NAME",
+        "fieldNameHe": "קו",
+        "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+        "remark": null,
+        "responseType": 1
+      },
+      "fareCharged": {
+        "fieldNameEn": "FARE_CHARGED_ILS",
+        "fieldNameHe": "סכום שחויב (₪)",
+        "value": 6.0,
+        "remark": null,
+        "responseType": 1
+      },
+      "paymentMethod": {
+        "fieldNameEn": "PAYMENT_METHOD",
+        "fieldNameHe": "אמצעי תשלום",
+        "value": "כרטיס מסלול",
+        "remark": null,
+        "responseType": 2
+      },
+      "tripId": {
+        "fieldNameEn": "TRIP_ID",
+        "fieldNameHe": "מזהה נסיעה",
+        "value": "T-50011",
+        "remark": null,
+        "responseType": 2
+      }
+    },
+    {
+      "tripDate": {
+        "fieldNameEn": "TRIP_DATE",
+        "fieldNameHe": "תאריך נסיעה",
+        "value": "2026-11-10 08:17",
+        "remark": null,
+        "responseType": 1
+      },
+      "routeName": {
+        "fieldNameEn": "ROUTE_NAME",
+        "fieldNameHe": "קו",
+        "value": "קו 12 – תחנה מרכזית ↔ אוניברסיטה",
+        "remark": null,
+        "responseType": 1
+      },
+      "fareCharged": {
+        "fieldNameEn": "FARE_CHARGED_ILS",
+        "fieldNameHe": "סכום שחויב (₪)",
+        "value": 6.0,
+        "remark": null,
+        "responseType": 1
+      },
+      "paymentMethod": {
+        "fieldNameEn": "PAYMENT_METHOD",
+        "fieldNameHe": "אמצעי תשלום",
+        "value": "כרטיס מסלול",
+        "remark": null,
+        "responseType": 2
+      },
+      "tripId": {
+        "fieldNameEn": "TRIP_ID",
+        "fieldNameHe": "מזהה נסיעה",
+        "value": "T-50012",
+        "remark": null,
+        "responseType": 2
+      }
+    },
+    {
+      "tripDate": {
+        "fieldNameEn": "TRIP_DATE",
+        "fieldNameHe": "תאריך נסיעה",
+        "value": "2026-11-09 17:40",
+        "remark": null,
+        "responseType": 1
+      },
+      "routeName": {
+        "fieldNameEn": "ROUTE_NAME",
+        "fieldNameHe": "קו",
+        "value": "רכבת קלה אדומה – מרכז העיר ↔ הנמל",
+        "remark": null,
+        "responseType": 1
+      },
+      "fareCharged": {
+        "fieldNameEn": "FARE_CHARGED_ILS",
+        "fieldNameHe": "סכום שחויב (₪)",
+        "value": 7.5,
+        "remark": null,
+        "responseType": 1
+      },
+      "paymentMethod": {
+        "fieldNameEn": "PAYMENT_METHOD",
+        "fieldNameHe": "אמצעי תשלום",
+        "value": "כרטיס מסלול",
+        "remark": null,
+        "responseType": 2
+      },
+      "tripId": {
+        "fieldNameEn": "TRIP_ID",
+        "fieldNameHe": "מזהה נסיעה",
+        "value": "T-50013",
+        "remark": null,
+        "responseType": 2
+      }
+    }
+  ]
+}

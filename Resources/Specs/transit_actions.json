@@ -1,0 +1,701 @@
+{
+  "actions": {
+    "get_selected_option_from_user": {
+      "description": "Display a list of options to the user and return the selected option",
+      "steps": [
+        {
+          "tool_name": "get_selection_from_user",
+          "return_data": "selected_index",
+          "params": {
+            "options": {
+              "value": "options",
+              "arg_type": "param"
+            },
+            "prompt": {
+              "value": "prompt",
+              "arg_type": "param"
+            },
+            "description": {
+              "value": "Index of the relevant row",
+              "arg_type": "value"
+            },
+            "return_keys": {
+              "value": [
+                "selected_index"
+              ],
+              "arg_type": "value"
+            },
+            "return_types": {
+              "value": [
+                "int"
+              ],
+              "arg_type": "value"
+            }
+          }
+        },
+        {
+          "tool_name": "select_option",
+          "return_data": "selected_option_details",
+          "params": {
+            "options": {
+              "value": "options",
+              "arg_type": "param"
+            },
+            "selected_index": {
+              "value": "selected_index",
+              "arg_type": "param"
+            }
+          }
+        }
+      ],
+      "params": {
+        "options": {
+          "type": "list",
+          "description": "Options to display to the user"
+        },
+        "prompt": {
+          "type": "str",
+          "description": "Selection prompt to display to the user"
+        }
+      },
+      "doc_outputs": {
+        "selected_option_details": {
+          "type": "dict",
+          "description": "Selected option details",
+          "main_return": false
+        }
+      }
+    },
+    "select_trip": {
+      "description": "Fetch the rider's recent trips and let the rider pick one",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetTripHistory_response",
+          "params": {
+            "endpoint": {
+              "value": "GetTripHistory",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                },
+                "daysBack": {
+                  "value": 30,
+                  "arg_type": "value"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        },
+        {
+          "tool_name": "get_selected_option_from_user",
+          "return_data": {
+            "selected_index": "selected_trip_index",
+            "selected_option_details": "selected_trip_details"
+          },
+          "params": {
+            "options": {
+              "value": "GetTripHistory_response.result",
+              "arg_type": "param"
+            },
+            "prompt": {
+              "value": "### הנסיעות האחרונות שלך (30 הימים האחרונים)\n\nאנא בחר/י את הנסיעה הרלוונטית. הקלד/י את מספר השורה.\nאם הנסיעה לא מופיעה ברשימה, אנא פנה/י לשירות הלקוחות.",
+              "arg_type": "value"
+            }
+          }
+        }
+      ],
+      "params": {},
+      "doc_outputs": {
+        "selected_trip_details": {
+          "type": "response_dict",
+          "description": "Details of the trip the rider selected",
+          "main_return": true
+        },
+        "GetTripHistory_response": {
+          "type": "response_dict",
+          "description": "Response from GetTripHistory",
+          "main_return": false
+        }
+      }
+    },
+    "check_duplicate_charge": {
+      "description": "Check whether the selected trip was charged twice",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "CheckDuplicateCharge_response",
+          "params": {
+            "endpoint": {
+              "value": "CheckDuplicateCharge",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                },
+                "tripId": {
+                  "value": "selected_trip_details.tripId.value",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {
+        "selected_trip_details": {
+          "type": "dict",
+          "description": "tripId of the selected trip"
+        }
+      },
+      "doc_outputs": {
+        "CheckDuplicateCharge_response": {
+          "type": "response_dict",
+          "description": "Raw response object from CheckDuplicateCharge",
+          "main_return": true
+        }
+      }
+    },
+    "check_refund_eligibility": {
+      "description": "Check whether the selected trip is eligible for a refund",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "CheckRefundEligibility_response",
+          "params": {
+            "endpoint": {
+              "value": "CheckRefundEligibility",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                },
+                "tripId": {
+                  "value": "selected_trip_details.tripId.value",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {
+        "selected_trip_details": {
+          "type": "dict",
+          "description": "tripId of the selected trip"
+        }
+      },
+      "doc_outputs": {
+        "CheckRefundEligibility_response": {
+          "type": "response_dict",
+          "description": "Raw response object from CheckRefundEligibility",
+          "main_return": true
+        }
+      }
+    },
+    "get_refund_requests": {
+      "description": "List refund requests already submitted by the rider",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetRefundRequests_response",
+          "params": {
+            "endpoint": {
+              "value": "GetRefundRequests",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {},
+      "doc_outputs": {
+        "GetRefundRequests_response": {
+          "type": "response_dict",
+          "description": "Raw response object from GetRefundRequests",
+          "main_return": true
+        }
+      }
+    },
+    "get_rider_profile": {
+      "description": "Get the rider's category, discount validity and card status",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetRiderProfile_response",
+          "params": {
+            "endpoint": {
+              "value": "GetRiderProfile",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {},
+      "doc_outputs": {
+        "GetRiderProfile_response": {
+          "type": "response_dict",
+          "description": "Raw response object from GetRiderProfile",
+          "main_return": true
+        }
+      }
+    },
+    "check_discount_eligibility": {
+      "description": "Check the discount rules for the rider's category",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "CheckDiscountEligibility_response",
+          "params": {
+            "endpoint": {
+              "value": "CheckDiscountEligibility",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                },
+                "riderCategory": {
+                  "value": "GetRiderProfile_response.riderCategory.value",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {
+        "GetRiderProfile_response": {
+          "type": "dict",
+          "description": "Rider profile (riderCategory)"
+        }
+      },
+      "doc_outputs": {
+        "CheckDiscountEligibility_response": {
+          "type": "response_dict",
+          "description": "Raw response object from CheckDiscountEligibility",
+          "main_return": true
+        }
+      }
+    },
+    "check_discount_validity": {
+      "description": "Check that the discount of the rider has not expired",
+      "steps": [
+        {
+          "tool_name": "is_date_in_range",
+          "return_data": "is_discount_valid",
+          "params": {
+            "start_date": {
+              "value": "now",
+              "arg_type": "value"
+            },
+            "date_to_check": {
+              "value": "GetRiderProfile_response.discountValidUntil.value",
+              "arg_type": "param"
+            }
+          }
+        }
+      ],
+      "params": {
+        "GetRiderProfile_response": {
+          "type": "dict",
+          "description": "Rider profile (discountValidUntil)"
+        }
+      },
+      "doc_outputs": {
+        "is_discount_valid": {
+          "type": "bool",
+          "description": "Is the discount of the rider still valid?",
+          "main_return": true
+        }
+      }
+    },
+    "select_active_pass": {
+      "description": "Fetch the rider's passes and let the rider pick one",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetActivePasses_response",
+          "params": {
+            "endpoint": {
+              "value": "GetActivePasses",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        },
+        {
+          "tool_name": "get_selected_option_from_user",
+          "return_data": {
+            "selected_index": "selected_pass_index",
+            "selected_option_details": "selected_pass_details"
+          },
+          "params": {
+            "options": {
+              "value": "GetActivePasses_response.result",
+              "arg_type": "param"
+            },
+            "prompt": {
+              "value": "### המנויים שלך\n\nאנא בחר/י את המנוי שברצונך לחדש. הקלד/י את מספר השורה.\nאם המנוי לא מופיע ברשימה, אנא פנה/י לשירות הלקוחות.",
+              "arg_type": "value"
+            }
+          }
+        }
+      ],
+      "params": {},
+      "doc_outputs": {
+        "selected_pass_details": {
+          "type": "response_dict",
+          "description": "Details of the pass the rider selected",
+          "main_return": true
+        },
+        "GetActivePasses_response": {
+          "type": "response_dict",
+          "description": "Response from GetActivePasses",
+          "main_return": false
+        }
+      }
+    },
+    "get_pass_renewal_options": {
+      "description": "Get the renewal terms of the selected pass",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetPassRenewalOptions_response",
+          "params": {
+            "endpoint": {
+              "value": "GetPassRenewalOptions",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                },
+                "passId": {
+                  "value": "selected_pass_details.passId.value",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {
+        "selected_pass_details": {
+          "type": "dict",
+          "description": "passId of the selected pass"
+        }
+      },
+      "doc_outputs": {
+        "GetPassRenewalOptions_response": {
+          "type": "response_dict",
+          "description": "Raw response object from GetPassRenewalOptions",
+          "main_return": true
+        }
+      }
+    },
+    "get_card_balance": {
+      "description": "Get the stored-value balance of the rider's card",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetCardBalance_response",
+          "params": {
+            "endpoint": {
+              "value": "GetCardBalance",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {},
+      "doc_outputs": {
+        "GetCardBalance_response": {
+          "type": "response_dict",
+          "description": "Raw response object from GetCardBalance",
+          "main_return": true
+        }
+      }
+    },
+    "compute_balance_after_renewal": {
+      "description": "Compute what is left on the card after paying for the renewal",
+      "steps": [
+        {
+          "tool_name": "reduce",
+          "return_data": "balance_after_renewal",
+          "params": {
+            "val_a": {
+              "value": "GetCardBalance_response.balance.value",
+              "arg_type": "param"
+            },
+            "val_b": {
+              "value": "GetPassRenewalOptions_response.renewalPrice.value",
+              "arg_type": "param"
+            },
+            "operator": {
+              "value": "subtract",
+              "arg_type": "value"
+            }
+          }
+        }
+      ],
+      "params": {
+        "GetCardBalance_response": {
+          "type": "dict",
+          "description": "Card balance (balance)"
+        },
+        "GetPassRenewalOptions_response": {
+          "type": "dict",
+          "description": "Renewal terms (renewalPrice)"
+        }
+      },
+      "doc_outputs": {
+        "balance_after_renewal": {
+          "type": "float",
+          "description": "Card balance after paying for the renewal (ILS)",
+          "main_return": true
+        }
+      }
+    },
+    "select_fine": {
+      "description": "Fetch the rider's fines and let the rider pick one",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetFineDetails_response",
+          "params": {
+            "endpoint": {
+              "value": "GetFineDetails",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        },
+        {
+          "tool_name": "get_selected_option_from_user",
+          "return_data": {
+            "selected_index": "selected_fine_index",
+            "selected_option_details": "selected_fine_details"
+          },
+          "params": {
+            "options": {
+              "value": "GetFineDetails_response.result",
+              "arg_type": "param"
+            },
+            "prompt": {
+              "value": "### הקנסות שלך\n\nאנא בחר/י את הקנס הרלוונטי. הקלד/י את מספר השורה.\nאם הקנס לא מופיע ברשימה, אנא פנה/י לשירות הלקוחות.",
+              "arg_type": "value"
+            }
+          }
+        }
+      ],
+      "params": {},
+      "doc_outputs": {
+        "selected_fine_details": {
+          "type": "response_dict",
+          "description": "Details of the fine the rider selected",
+          "main_return": true
+        },
+        "GetFineDetails_response": {
+          "type": "response_dict",
+          "description": "Response from GetFineDetails",
+          "main_return": false
+        }
+      }
+    },
+    "check_fine_appeal_window": {
+      "description": "Check whether the selected fine can still be appealed",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "CheckFineAppealWindow_response",
+          "params": {
+            "endpoint": {
+              "value": "CheckFineAppealWindow",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                },
+                "fineId": {
+                  "value": "selected_fine_details.fineId.value",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {
+        "selected_fine_details": {
+          "type": "dict",
+          "description": "fineId of the selected fine"
+        }
+      },
+      "doc_outputs": {
+        "CheckFineAppealWindow_response": {
+          "type": "response_dict",
+          "description": "Raw response object from CheckFineAppealWindow",
+          "main_return": true
+        }
+      }
+    },
+    "get_card_replacement_options": {
+      "description": "Get the replacement terms for a lost or blocked card",
+      "steps": [
+        {
+          "tool_name": "get_user_id",
+          "return_data": "user_id",
+          "params": {}
+        },
+        {
+          "tool_name": "send_request",
+          "return_data": "GetCardReplacementOptions_response",
+          "params": {
+            "endpoint": {
+              "value": "GetCardReplacementOptions",
+              "arg_type": "value"
+            },
+            "add_kwargs": {
+              "value": {
+                "riderId": {
+                  "value": "user_id",
+                  "arg_type": "param"
+                }
+              },
+              "arg_type": "dict"
+            }
+          }
+        }
+      ],
+      "params": {},
+      "doc_outputs": {
+        "GetCardReplacementOptions_response": {
+          "type": "response_dict",
+          "description": "Raw response object from GetCardReplacementOptions",
+          "main_return": true
+        }
+      }
+    }
+  }
+}

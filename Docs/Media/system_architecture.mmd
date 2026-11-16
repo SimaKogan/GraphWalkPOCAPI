@@ -1,0 +1,89 @@
+---
+config:
+  layout: fixed
+---
+flowchart TD
+ subgraph AppLayer["Application Layer"]
+        CLIApp["CLIApp/kag_text_app.py"]
+        Menu["CLIApp/simple_text_menu.py"]
+        FastAPI["Web/server.py"]
+  end
+ subgraph Core["Core Logic"]
+        Orchestrator["orchestrator.py"]
+        GeneralMgr["Managers/general_manager.py"]
+        PersonalMgr["Managers/personal_manager.py"]
+        Router["Agents/router_agent.py"]
+        RouteAns["Agents/route_answer_agent.py"]
+        Critic["Agents/wf_selection_critic_agent.py"]
+        GenQA["Agents/general_qa_agent.py"]
+        PersQA["Agents/personal_qa_agent.py"]
+        PromptAgent["Agents/prompt_based_agent.py"]
+        TraversalSel["Selection/topic_selector.py"]
+        QSelector["Selection/question_selector.py"]
+        SelAgg["Selection/selection_fusion.py"]
+        Executor["WFExecution/executor.py"]
+        OrcUtils["Utils/orc_utils.py"]
+  end
+ subgraph Entities["Entities"]
+        EntitiesMgr["entities_manager.py"]
+        Entity["entity.py"]
+        Blocks["blocks.py"]
+        TopicState["topic_states.py"]
+        Workflows["workflows.py"]
+        Question["question.py"]
+  end
+ subgraph GraphDB["GraphDB / Neo4j"]
+        Neo4jMgr["neo4j_graph_manager.py"]
+        Neo4jUtils["neo4j_utils.py"]
+        Neo4j[("Neo4j DB")]
+        QIdx[("question_embedding_idx")]
+  end
+ subgraph DataLayer["Data Layer"]
+        Entities
+        GraphDB
+        DataModule["data_module.py"]
+        Traceability["traceability.py"]
+  end
+ subgraph Tools["Tools & Utilities"]
+        Registry["registry.py"]
+        SessionTools["session_tools.py"]
+        TransitTools["transit_tools.py"]
+        MockTools["MockTools/"]
+        GCloud["Utils/gcloud_utils.py"]
+        LLMUtils["Utils/llm_utils.py"]
+  end
+ subgraph Embeddings["Embeddings"]
+        Embedder["embeddings.py"]
+        VertexEmb[("Vertex AI Embedding Model")]
+  end
+ subgraph LLM["LLM Providers"]
+        VertexGenAI[("Vertex AI GenAI (Text/Chat)")]
+  end
+ subgraph Config["Configuration"]
+        Settings["settings.py"]
+        JSONConfigs["Resources/Configs/*.json"]
+        Prompts["Resources/PromptConfigs/prompts.json"]
+        ENV[".env"]
+  end
+    User["User Query"] --> AppLayer
+    CLIApp --> Menu & Orchestrator
+    FastAPI --> Orchestrator
+    AppLayer --> Config
+    Orchestrator --> Router & GeneralMgr & PersonalMgr & OrcUtils & SessionTools
+    GeneralMgr --> GenQA
+    PersonalMgr --> TraversalSel & QSelector & SelAgg & Critic & Executor & EntitiesMgr & PersQA
+    TraversalSel --> EntitiesMgr & Neo4jMgr & Embedder
+    QSelector --> EntitiesMgr & Neo4jMgr & Embedder
+    SelAgg --> Critic
+    Router --> RouteAns
+    GenQA -.-> PromptAgent
+    PersQA -.-> PromptAgent
+    RouteAns -.-> PromptAgent
+    Critic -.-> PromptAgent
+    PromptAgent --> VertexGenAI & LLMUtils
+    Executor --> Registry
+    Registry --> TransitTools & MockTools
+    EntitiesMgr --> TopicState & Blocks & Workflows & Question & Entity
+    Neo4jMgr --> Neo4jUtils & Neo4j
+    Neo4j --> QIdx
+    Embedder --> VertexEmb

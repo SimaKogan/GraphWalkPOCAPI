@@ -1,0 +1,85 @@
+{
+  "hasData": {
+    "fieldNameEn": "HAS_DATA",
+    "fieldNameHe": "האם קיימים קנסות",
+    "value": true,
+    "remark": null,
+    "responseType": 1
+  },
+  "result": [
+    {
+      "issuedOn": {
+        "fieldNameEn": "ISSUED_ON",
+        "fieldNameHe": "תאריך הקנס",
+        "value": "2026-10-20",
+        "remark": null,
+        "responseType": 1
+      },
+      "route": {
+        "fieldNameEn": "ROUTE",
+        "fieldNameHe": "קו",
+        "value": "קו 40",
+        "remark": null,
+        "responseType": 1
+      },
+      "amount": {
+        "fieldNameEn": "AMOUNT_ILS",
+        "fieldNameHe": "סכום (₪)",
+        "value": 180.0,
+        "remark": null,
+        "responseType": 1
+      },
+      "appealDeadline": {
+        "fieldNameEn": "APPEAL_DEADLINE",
+        "fieldNameHe": "מועד אחרון לערעור",
+        "value": "2026-11-20",
+        "remark": null,
+        "responseType": 2
+      },
+      "fineId": {
+        "fieldNameEn": "FINE_ID",
+        "fieldNameHe": "מספר קנס",
+        "value": "F-9001",
+        "remark": null,
+        "responseType": 2
+      }
+    },
+    {
+      "issuedOn": {
+        "fieldNameEn": "ISSUED_ON",
+        "fieldNameHe": "תאריך הקנס",
+        "value": "2026-08-02",
+        "remark": null,
+        "responseType": 1
+      },
+      "route": {
+        "fieldNameEn": "ROUTE",
+        "fieldNameHe": "קו",
+        "value": "רכבת קלה אדומה",
+        "remark": null,
+        "responseType": 1
+      },
+      "amount": {
+        "fieldNameEn": "AMOUNT_ILS",
+        "fieldNameHe": "סכום (₪)",
+        "value": 180.0,
+        "remark": null,
+        "responseType": 1
+      },
+      "appealDeadline": {
+        "fieldNameEn": "APPEAL_DEADLINE",
+        "fieldNameHe": "מועד אחרון לערעור",
+        "value": "2026-09-02",
+        "remark": null,
+        "responseType": 2
+      },
+      "fineId": {
+        "fieldNameEn": "FINE_ID",
+        "fieldNameHe": "מספר קנס",
+        "value": "F-9002",
+        "remark": null,
+        "responseType": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "tools": {
+    "send_request": {
+      "params": {
+        "endpoint": {
+          "type": "string",
+          "description": "Name of the endpoint to call (see transit_endpoints.json) - the method, URL and URL parameters come from the spec"
+        },
+        "headers": {
+          "type": "object",
+          "description": "Headers to send with the request"
+        },
+        "add_kwargs": {
+          "type": "dict",
+          "description": "Values for the URL / body parameters of the endpoint"
+        }
+      },
+      "return_data": {
+        "response": {
+          "type": "APIResponse",
+          "description": "Response from the request"
+        }
+      },
+      "description": "Send a request to a named endpoint of the transit API"
+    },
+    "send_get_request": {
+      "params": {
+        "url": {
+          "type": "string",
+          "description": "URL to send the GET request to"
+        },
+        "headers": {
+          "type": "object",
+          "description": "Headers"
+        },
+        "params": {
+          "type": "object",
+          "description": "Query parameters"
+        }
+      },
+      "return_data": {
+        "response": {
+          "type": "dict",
+          "description": "Response"
+        }
+      },
+      "description": "Send a GET request to the specified URL"
+    },
+    "send_post_request": {
+      "params": {
+        "url": {
+          "type": "string",
+          "description": "URL to send the POST request to"
+        },
+        "headers": {
+          "type": "object",
+          "description": "Headers"
+        },
+        "data": {
+          "type": "object",
+          "description": "Form data"
+        },
+        "json": {
+          "type": "object",
+          "description": "JSON body"
+        }
+      },
+      "return_data": {
+        "response": {
+          "type": "dict",
+          "description": "Response"
+        }
+      },
+      "description": "Send a POST request to the specified URL"
+    },
+    "get_user_id": {
+      "params": {},
+      "return_data": {
+        "user_id": {
+          "type": "string",
+          "description": "Rider id"
+        }
+      },
+      "description": "Get the unique id of the logged-in rider"
+    },
+    "echo_value": {
+      "params": {
+        "value": {
+          "type": "any",
+          "description": "Value to echo"
+        }
+      },
+      "return_data": {
+        "echoed_value": {
+          "type": "any",
+          "description": "The same value"
+        }
+      },
+      "description": "Echo a value (stores an action parameter in the facts)"
+    },
+    "reduce": {
+      "params": {
+        "val_a": {
+          "type": "number",
+          "description": "First operand"
+        },
+        "val_b": {
+          "type": "number",
+          "description": "Second operand"
+        },
+        "operator": {
+          "type": "string",
+          "description": "add | subtract | multiply | divide"
+        }
+      },
+      "return_data": {
+        "reduced_value": {
+          "type": "number",
+          "description": "Result"
+        }
+      },
+      "description": "Apply an arithmetic operator to two numbers"
+    },
+    "query_user": {
+      "params": {
+        "try_to_infer_from_conv": {
+          "type": "bool",
+          "description": "Try to infer from chat history"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Question shown to the user"
+        },
+        "description": {
+          "type": "string",
+          "description": "What to extract from the reply"
+        },
+        "return_keys": {
+          "type": "list",
+          "description": "Names of the returned values"
+        },
+        "return_types": {
+          "type": "list",
+          "description": "Types of the returned values"
+        }
+      },
+      "return_data": {
+        "user_response": {
+          "type": "dict",
+          "description": "Parsed reply"
+        }
+      },
+      "description": "Ask the user a question and parse the reply"
+    },
+    "get_selection_from_user": {
+      "params": {
+        "options": {
+          "type": "list",
+          "description": "Options to show"
+        },
+        "prompt": {
+          "type": "string",
+          "description": "Prompt"
+        },
+        "description": {
+          "type": "string",
+          "description": "What to extract"
+        },
+        "return_keys": {
+          "type": "list",
+          "description": "Returned names"
+        },
+        "return_types": {
+          "type": "list",
+          "description": "Returned types"
+        }
+      },
+      "return_data": {
+        "user_response": {
+          "type": "dict",
+          "description": "Parsed reply"
+        }
+      },
+      "description": "Show a numbered list and get the user's selection"
+    },
+    "select_option": {
+      "params": {
+        "options": {
+          "type": "list",
+          "description": "Options"
+        },
+        "selected_index": {
+          "type": "int",
+          "description": "1-based index"
+        }
+      },
+      "return_data": {
+        "selected_option_details": {
+          "type": "dict",
+          "description": "Chosen option"
+        }
+      },
+      "description": "Pick one option from a list by its index"
+    },
+    "format_custom_response": {
+      "params": {
+        "response": {
+          "type": "dict",
+          "description": "Raw API response"
+        }
+      },
+      "return_data": {
+        "formatted_response": {
+          "type": "dict",
+          "description": "Formatted"
+        }
+      },
+      "description": "Format an API response for the answer composer"
+    },
+    "is_date_in_range": {
+      "params": {
+        "start_date": {
+          "type": "string",
+          "description": "Range start (YYYY, YYYY-MM-DD or 'now')"
+        },
+        "end_date": {
+          "type": "string",
+          "description": "Range end (optional)"
+        },
+        "date_to_check": {
+          "type": "string",
+          "description": "Date to test"
+        },
+        "year_only": {
+          "type": "bool",
+          "description": "Compare years only"
+        }
+      },
+      "return_data": {
+        "is_in_range": {
+          "type": "bool",
+          "description": "Result"
+        }
+      },
+      "description": "Check whether a date is inside a range"
+    }
+  }
+}

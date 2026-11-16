@@ -1,0 +1,102 @@
+{
+  "states": {
+    "root": {
+      "title": "root",
+      "parent_id": null,
+      "description": "",
+      "kind": "topic",
+      "level": 0
+    },
+    "charges": {
+      "title": "חיובים והחזרים",
+      "parent_id": "root",
+      "description": "חיובים על נסיעות, חיוב כפול ובקשות להחזר כספי.",
+      "kind": "topic",
+      "level": 1
+    },
+    "duplicate_charge": {
+      "title": "חיוב כפול",
+      "parent_id": "charges",
+      "description": "בדיקה האם נסיעה חויבה פעמיים בכרטיס.",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "trip_refund": {
+      "title": "החזר על נסיעה",
+      "parent_id": "charges",
+      "description": "זכאות להחזר כספי על נסיעה שחויבה.",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "refund_status": {
+      "title": "סטטוס בקשות החזר",
+      "parent_id": "charges",
+      "description": "מעקב אחר בקשות החזר שכבר הוגשו.",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "passes": {
+      "title": "מנויים והנחות",
+      "parent_id": "root",
+      "description": "חידוש מנויים וזכאות להנחות לפי קטגוריית נוסע.",
+      "kind": "topic",
+      "level": 1
+    },
+    "pass_renewal": {
+      "title": "חידוש מנוי",
+      "parent_id": "passes",
+      "description": "חידוש מנוי חודשי או שנתי, מחיר חידוש ויתרה בכרטיס.",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "rider_discounts": {
+      "title": "הנחות לנוסעים",
+      "parent_id": "passes",
+      "description": "הנחה לסטודנטים, לאזרחים ותיקים ולנוער ותוקף ההנחה.",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "cards": {
+      "title": "כרטיס מסלול",
+      "parent_id": "root",
+      "description": "יתרה, סטטוס, אובדן וחסימה של כרטיס מסלול.",
+      "kind": "topic",
+      "level": 1
+    },
+    "card_balance": {
+      "title": "יתרה וסטטוס כרטיס",
+      "parent_id": "cards",
+      "description": "יתרה בכרטיס וסטטוס הכרטיס (פעיל, חסום, אבוד).",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "lost_or_blocked_card": {
+      "title": "כרטיס אבוד או חסום",
+      "parent_id": "cards",
+      "description": "החלפת כרטיס אבוד או חסום והעברת יתרה.",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "fines": {
+      "title": "קנסות",
+      "parent_id": "root",
+      "description": "קנסות בבדיקת כרטיסים וערעור עליהם.",
+      "kind": "topic",
+      "level": 1
+    },
+    "fine_appeal": {
+      "title": "ערעור על קנס",
+      "parent_id": "fines",
+      "description": "האם ניתן עוד לערער על קנס ועד מתי.",
+      "kind": "subtopic",
+      "level": 2
+    },
+    "general_info": {
+      "title": "מידע כללי",
+      "parent_id": "root",
+      "description": "כללי נסיעה, תעריפים, נגישות ושאלות כלליות שאינן תלויות בנתוני הנוסע.",
+      "kind": "general",
+      "level": 1
+    }
+  }
+}

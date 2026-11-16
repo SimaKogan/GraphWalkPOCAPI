@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>בוט מסלול • Login</title>
+    <link rel="stylesheet" href="/static/chat.css">
+</head>
+<body class="page-auth">
+<div class="auth-card">
+    <h1>Welcome</h1>
+    <p class="muted">Login or Register to continue</p>
+
+    <form id="login-form" class="stack">
+        <input id="login-email" type="email" placeholder="Email" required>
+        <input id="login-password" type="password" placeholder="Password" required>
+        <button type="submit" class="btn primary">Login</button>
+    </form>
+
+    <div class="divider"><span>or</span></div>
+
+    <form id="register-form" class="stack">
+        <input id="reg-email" type="email" placeholder="Email" required>
+        <input id="reg-password" type="password" placeholder="Password" required>
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+
+<!-- External JS -->
+<script src="/static/auth.js"></script>
+</body>
+</html>

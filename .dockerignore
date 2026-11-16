@@ -1,0 +1,23 @@
+# .dockerignore
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.log
+
+.venv/
+.env
+.idea/
+.vscode/
+.mypy_cache/
+.pytest_cache/
+.cache/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Local data / experiments (if any)
+Resources/Experiments/*
+/Resources/Traceability/*
+/Experiments/*

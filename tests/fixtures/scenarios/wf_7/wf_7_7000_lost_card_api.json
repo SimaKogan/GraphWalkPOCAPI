@@ -1,0 +1,20 @@
+{
+  "scenario_id": "wf_7_7000_lost_card_api",
+  "user_id": "100000115",
+  "first_query": "איבדתי את הכרטיס, מה עושים?",
+  "config_path": "Resources/SystemConfigs/exp_1_create_dbs.json",
+  "mock_tools": 4,
+  "external_personal_info_base_url": "http://localhost:9000/mock-api",
+  "scripted_user_replies": [],
+  "expectations": {
+    "route": "personal",
+    "workflow_id": "wf 7",
+    "gt_answer": "הכרטיס מסומן כאבוד. ההחלפה עולה 20 ₪ והיתרה מועברת לכרטיס החדש.",
+    "facts_contains_keys": [
+      "GetCardReplacementOptions_response",
+      "GetRiderProfile_response"
+    ],
+    "answer_must_include": [],
+    "answer_must_exclude": []
+  }
+}

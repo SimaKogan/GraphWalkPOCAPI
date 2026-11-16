@@ -1,0 +1,440 @@
+{
+  "workflows": {
+    "wf 1": {
+      "title": "בדיקת חיוב כפול על נסיעה",
+      "parent_id": "duplicate_charge",
+      "description": "הנוסע בוחר נסיעה, המערכת בודקת אם חויבה פעמיים ואם כן גם את הזכאות להחזר.",
+      "blocks": [
+        {
+          "id": "block 1 - select trip",
+          "type": "block"
+        },
+        {
+          "id": "block 2 - duplicate charge",
+          "type": "block"
+        },
+        {
+          "id": "block 3 - refund eligibility",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 1 - select trip"
+        },
+        {
+          "from": "block 1 - select trip",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "GetTripHistory_response.hasData",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 1 - select trip",
+          "to": "block 2 - duplicate charge",
+          "or_conditions": [
+            {
+              "on": "GetTripHistory_response.hasData",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 2 - duplicate charge",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "CheckDuplicateCharge_response.isDuplicate",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 2 - duplicate charge",
+          "to": "block 3 - refund eligibility",
+          "or_conditions": [
+            {
+              "on": "CheckDuplicateCharge_response.isDuplicate",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 3 - refund eligibility",
+          "to": "end"
+        }
+      ]
+    },
+    "wf 2": {
+      "title": "זכאות להחזר על נסיעה",
+      "parent_id": "trip_refund",
+      "description": "הנוסע בוחר נסיעה, המערכת בודקת זכאות להחזר ואם יש כבר בקשת החזר פתוחה.",
+      "blocks": [
+        {
+          "id": "block 1 - select trip",
+          "type": "block"
+        },
+        {
+          "id": "block 3 - refund eligibility",
+          "type": "block"
+        },
+        {
+          "id": "block 4 - refund requests",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 1 - select trip"
+        },
+        {
+          "from": "block 1 - select trip",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "GetTripHistory_response.hasData",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 1 - select trip",
+          "to": "block 3 - refund eligibility",
+          "or_conditions": [
+            {
+              "on": "GetTripHistory_response.hasData",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 3 - refund eligibility",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "CheckRefundEligibility_response.isEligible",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 3 - refund eligibility",
+          "to": "block 4 - refund requests",
+          "or_conditions": [
+            {
+              "on": "CheckRefundEligibility_response.isEligible",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 4 - refund requests",
+          "to": "end"
+        }
+      ]
+    },
+    "wf 3": {
+      "title": "סטטוס בקשות החזר",
+      "parent_id": "refund_status",
+      "description": "הצגת בקשות ההחזר שהנוסע הגיש והסטטוס שלהן.",
+      "blocks": [
+        {
+          "id": "block 4 - refund requests",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 4 - refund requests"
+        },
+        {
+          "from": "block 4 - refund requests",
+          "to": "end"
+        }
+      ]
+    },
+    "wf 4": {
+      "title": "זכאות לתוקף ההנחה לנוסעים",
+      "parent_id": "rider_discounts",
+      "description": "בדיקת קטגוריית הנוסע, זכאות להנחה ותוקף ההנחה.",
+      "blocks": [
+        {
+          "id": "block 5 - rider profile",
+          "type": "block"
+        },
+        {
+          "id": "block 6 - discount eligibility",
+          "type": "block"
+        },
+        {
+          "id": "block 7 - discount validity",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 5 - rider profile"
+        },
+        {
+          "from": "block 5 - rider profile",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "GetRiderProfile_response.riderCategory",
+              "equals": "regular"
+            }
+          ]
+        },
+        {
+          "from": "block 5 - rider profile",
+          "to": "block 6 - discount eligibility",
+          "or_conditions": [
+            {
+              "on": "GetRiderProfile_response.riderCategory",
+              "equals": "student"
+            },
+            {
+              "on": "GetRiderProfile_response.riderCategory",
+              "equals": "senior"
+            },
+            {
+              "on": "GetRiderProfile_response.riderCategory",
+              "equals": "youth"
+            }
+          ]
+        },
+        {
+          "from": "block 6 - discount eligibility",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "CheckDiscountEligibility_response.isEligible",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 6 - discount eligibility",
+          "to": "block 7 - discount validity",
+          "or_conditions": [
+            {
+              "on": "CheckDiscountEligibility_response.isEligible",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 7 - discount validity",
+          "to": "end"
+        }
+      ]
+    },
+    "wf 5": {
+      "title": "חידוש מנוי",
+      "parent_id": "pass_renewal",
+      "description": "הנוסע בוחר מנוי, המערכת בודקת אם ניתן לחדש, כמה זה עולה וכמה יישאר בכרטיס.",
+      "blocks": [
+        {
+          "id": "block 8 - select pass",
+          "type": "block"
+        },
+        {
+          "id": "block 9 - renewal options",
+          "type": "block"
+        },
+        {
+          "id": "block 10 - card balance",
+          "type": "block"
+        },
+        {
+          "id": "block 11 - balance after renewal",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 8 - select pass"
+        },
+        {
+          "from": "block 8 - select pass",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "GetActivePasses_response.hasData",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 8 - select pass",
+          "to": "block 9 - renewal options",
+          "or_conditions": [
+            {
+              "on": "GetActivePasses_response.hasData",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 9 - renewal options",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "GetPassRenewalOptions_response.canRenew",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 9 - renewal options",
+          "to": "block 10 - card balance",
+          "or_conditions": [
+            {
+              "on": "GetPassRenewalOptions_response.canRenew",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 10 - card balance",
+          "to": "block 11 - balance after renewal"
+        },
+        {
+          "from": "block 11 - balance after renewal",
+          "to": "end"
+        }
+      ]
+    },
+    "wf 6": {
+      "title": "ערעור על קנס",
+      "parent_id": "fine_appeal",
+      "description": "הנוסע בוחר קנס והמערכת בודקת אם עדיין ניתן לערער עליו.",
+      "blocks": [
+        {
+          "id": "block 12 - select fine",
+          "type": "block"
+        },
+        {
+          "id": "block 13 - appeal window",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 12 - select fine"
+        },
+        {
+          "from": "block 12 - select fine",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "GetFineDetails_response.hasData",
+              "equals": false
+            }
+          ]
+        },
+        {
+          "from": "block 12 - select fine",
+          "to": "block 13 - appeal window",
+          "or_conditions": [
+            {
+              "on": "GetFineDetails_response.hasData",
+              "equals": true
+            }
+          ]
+        },
+        {
+          "from": "block 13 - appeal window",
+          "to": "end"
+        }
+      ]
+    },
+    "wf 7": {
+      "title": "כרטיס אבוד או חסום",
+      "parent_id": "lost_or_blocked_card",
+      "description": "בדיקת סטטוס הכרטיס ואם הוא אבוד או חסום גם תנאי ההחלפה.",
+      "blocks": [
+        {
+          "id": "block 5 - rider profile",
+          "type": "block"
+        },
+        {
+          "id": "block 14 - card replacement",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 5 - rider profile"
+        },
+        {
+          "from": "block 5 - rider profile",
+          "to": "end",
+          "or_conditions": [
+            {
+              "on": "GetRiderProfile_response.cardStatus",
+              "equals": "active"
+            }
+          ]
+        },
+        {
+          "from": "block 5 - rider profile",
+          "to": "block 14 - card replacement",
+          "or_conditions": [
+            {
+              "on": "GetRiderProfile_response.cardStatus",
+              "equals": "lost"
+            },
+            {
+              "on": "GetRiderProfile_response.cardStatus",
+              "equals": "blocked"
+            }
+          ]
+        },
+        {
+          "from": "block 14 - card replacement",
+          "to": "end"
+        }
+      ]
+    },
+    "wf 8": {
+      "title": "יתרה וסטטוס כרטיס",
+      "parent_id": "card_balance",
+      "description": "הצגת סטטוס הכרטיס ויתרת הערך הצבור בו.",
+      "blocks": [
+        {
+          "id": "block 5 - rider profile",
+          "type": "block"
+        },
+        {
+          "id": "block 10 - card balance",
+          "type": "block"
+        }
+      ],
+      "edges": [
+        {
+          "from": "start",
+          "to": "block 5 - rider profile"
+        },
+        {
+          "from": "block 5 - rider profile",
+          "to": "block 10 - card balance"
+        },
+        {
+          "from": "block 10 - card balance",
+          "to": "end"
+        }
+      ]
+    }
+  }
+}
